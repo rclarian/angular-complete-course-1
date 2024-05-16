@@ -16,6 +16,9 @@ local: http://localhost:4200/
 ng g c header --skip-tests
 ng g c topHeader
 
+--node_modules, not included in commit, 
+npm install
+
 --Property binding - []
 [disabled]="!(product.inStock > 0)"
 [src]="product.pImage"
@@ -24,4 +27,23 @@ ng g c topHeader
 (input)="onNameChange()"
 
 --Project location
-Office: E:\Project\Tutorial2023\Angular\angular-complete-course
+Office: E:\Project\Tutorial2023\Angular\angular-complete-course-1
+
+--Folders
+node_modules = Node modules allow users to reuse existing code instead of reinventing the wheel. This can save time and effort by leveraging the work of others in the NodeJS community. Modularity: Node modules promote a modular approach to software development.
+
+package.json = to identify your project and understand how to handle the project's dependencies.
+
+.editorconfig = maintain consistent coding styles and conventions in a codebase, regardless of the editor or IDE you use.
+
+.gitignore = location of file not included on the commit
+
+angular.json = project configuration. The angular.json file at the root level of an Angular workspace provides workspace-wide and project-specific configuration defaults
+
+package-lock.json = to ensure that the same dependencies are installed consistently across different environments, such as development and production environments
+
+tsconfig.json =  allows you to configure how the TypeScript compiler processes your TypeScript code
+
+src folder = most important folder of all.
+
+main.ts = starting of the project.
