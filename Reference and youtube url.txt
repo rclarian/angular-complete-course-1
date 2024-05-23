@@ -19,6 +19,9 @@ ng g c topHeader
 --node_modules, not included in commit, 
 npm install
 
+--install bootstrap
+npm i --save bootstrap
+
 --Property binding - []
 [disabled]="!(product.inStock > 0)"
 [src]="product.pImage"
