@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  //selector: 'top-header',
-  selector: '#top-header',
+  selector: 'top-header',
   standalone: true,
   imports: [],
   templateUrl: './top-header.component.html',
