@@ -22,6 +22,11 @@ npm install
 --locate the specific folder
 cd src/app/header
 
+--Directives
+1.Component directive
+2.Attribute directive
+3.Structural directive
+
 --Property binding - []
 [disabled]="!(product.inStock > 0)"
 [src]="product.pImage"
@@ -50,3 +55,5 @@ tsconfig.json =  allows you to configure how the TypeScript compiler processes y
 src folder = most important folder of all.
 
 main.ts = starting of the project.
+
+
