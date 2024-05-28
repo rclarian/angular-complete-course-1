@@ -3,12 +3,12 @@ import { SearchComponent } from './search/search.component'
 import {NgFor, NgForOf} from "@angular/common";
 
 @Component({
-  selector: 'product-list',
+  selector: 'app-container',
   standalone: true,
   imports: [NgFor, NgForOf, SearchComponent],
-  templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.css'
+  templateUrl: './container.component.html',
+  styleUrl: './container.component.css'
 })
-export class ProductListComponent {
+export class ContainerComponent {
   listOfString: string[] = ['Mark', 'Steve', 'Merry', 'John', 'Sarah'];
 }
