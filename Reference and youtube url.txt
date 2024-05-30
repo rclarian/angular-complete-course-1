@@ -37,6 +37,7 @@ cd src/app/header
 --Project location
 Office: E:\Project\Tutorial2023\Angular\angular-complete-course-1
 
+---------------------------------------------------
 --Folders
 node_modules = Node modules allow users to reuse existing code instead of reinventing the wheel. This can save time and effort by leveraging the work of others in the NodeJS community. Modularity: Node modules promote a modular approach to software development.
 
@@ -55,5 +56,10 @@ tsconfig.json =  allows you to configure how the TypeScript compiler processes y
 src folder = most important folder of all.
 
 main.ts = starting of the project.
+
+---------------------------------------------------
+Child Component to Parent Component to Child component
+1. Child to Parent > Custom event binding & @Output() Decorator
+2. Parent to other Child > Custom property binding & @Input() Decorator
 
 

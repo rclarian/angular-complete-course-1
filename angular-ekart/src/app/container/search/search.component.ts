@@ -12,6 +12,14 @@ import { CommonModule } from '@angular/common';
 export class SearchComponent {
   searchText: string = '';
 
+  //1. Create an event
+  @Output() //Child to parent
+  searchTextChangedChild: EventEmitter<string> = new EventEmitter<string>();
+
+  onSearchTextChanged(){
+    this.searchTextChangedChild.emit(this.searchText);
+  }
+
   updateSearchText(event: any){
     this.searchText = event.target.value;
   }
