@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import {NgFor, NgForOf, CommonModule} from "@angular/common";
 import { ProductComponent } from './product/product.component';
+import { FilterComponent } from './filter/filter.component'
 
 @Component({
   selector: 'product-list',
   standalone: true,
-  imports: [NgForOf, CommonModule, ProductComponent],
+  imports: [NgForOf, CommonModule, ProductComponent, FilterComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
@@ -242,4 +243,8 @@ export class ProductListComponent {
       slug: "michael-march-sk8-hi"
     }
   ];
+
+  totalProductCount = this.products.length;
+  totalProductInStock = this.products.filter(p => p.is_in_inventory === true).length;
+  totalProductOutOfStock = this.products.filter(p => p.is_in_inventory === false).length;
 }
