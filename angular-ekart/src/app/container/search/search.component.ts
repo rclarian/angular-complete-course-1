@@ -20,7 +20,12 @@ export class SearchComponent {
     this.searchTextChangedChild.emit(this.searchText);
   }
 
-  updateSearchText(event: any){
-    this.searchText = event.target.value;
+  updateSearchText(inputEL: HTMLInputElement){
+    //console.log(inputEL.value);
+    //this.searchText = event.target.value;
+    this.searchText = inputEL.value;
+    this.searchTextChangedChild.emit(this.searchText);
   }
+
+
 }
