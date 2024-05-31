@@ -16,5 +16,6 @@
     <!-- <div *ngFor="let item of listOfString">
         <p>Current name is: {{item}}</p>
     </div> -->
-    <product-list [searchTextProductList]="searchTextContainer"></product-list>
+    <product-list [searchTextProductList]="searchTextContainer" #productListComponent></product-list>
+    <product-detail *ngIf="productListComponent.selectedProduct"></product-detail>
 </div>
