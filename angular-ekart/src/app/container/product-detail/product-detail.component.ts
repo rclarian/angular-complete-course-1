@@ -6,7 +6,7 @@ import {NgFor, NgForOf, CommonModule} from "@angular/common";
 @Component({
   selector: 'product-detail',
   standalone: true,
-  imports: [NgFor, NgForOf, CommonModule],
+  imports: [CommonModule],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css'
 })

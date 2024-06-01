@@ -17,5 +17,5 @@
         <p>Current name is: {{item}}</p>
     </div> -->
     <product-list [searchTextProductList]="searchTextContainer" #productListComponent></product-list>
-    <product-detail *ngIf="productListComponent.selectedProduct"></product-detail>
+    <product-detail *ngIf="productListComponent.selectedProduct" [productListComp]="productListComponent"></product-detail>
 </div>
