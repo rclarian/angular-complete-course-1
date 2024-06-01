@@ -16,6 +16,8 @@ export class ContainerComponent {
 
   searchTextContainer: string = '';
 
+  @ViewChild(ProductListComponent) productListComponent: ProductListComponent;
+
   setSearchText(value: string){
     this.searchTextContainer = value;
   }
