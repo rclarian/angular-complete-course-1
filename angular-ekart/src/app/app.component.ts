@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { TopHeaderComponent } from './top-header/top-header.component';
-import { ContainerComponent } from './container/container.component'
+import { ContainerComponent } from './container/container.component';
+import { DemoTestComponent } from './demo-test/demo-test.component';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ import { ContainerComponent } from './container/container.component'
     RouterOutlet,
     HeaderComponent,
     TopHeaderComponent,
-    ContainerComponent
+    ContainerComponent,
+    DemoTestComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
