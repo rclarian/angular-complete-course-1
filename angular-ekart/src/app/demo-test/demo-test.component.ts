@@ -11,7 +11,12 @@ import { ParentComponent } from './parent/parent.component';
 })
 export class DemoTestComponent {
   title = 'Angular-lifecycle-hook';
+  inputVal: string = '';
   constructor(){
    console.log('Demo-test component constructor called.');
+  }
+
+  onBtnClicked(inputEl: HTMLInputElement){
+    this.inputVal = inputEl.value;
   }
 }

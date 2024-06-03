@@ -1,6 +1,8 @@
 
 
 <div class="container">
-    <app-parent [message]="'Hello World'"></app-parent>
-    <button>Show / Hide</button>
+    <input type="text" #inputEl>
+    <button (click)="onBtnClicked(inputEl)">Submit</button>
+    <app-parent [message]="inputVal"></app-parent>
+    
 </div>
