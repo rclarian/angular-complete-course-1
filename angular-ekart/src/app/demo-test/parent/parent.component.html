@@ -6,7 +6,20 @@
             Assumenda eveniet labore perspiciatis et quibusdam eligendi iste exercitationem quae. 
             Odio commodi nemo id blanditiis magni. Quibusdam eveniet ipsam eligendi quis eos.
         </p>
-        <app-test></app-test>
+        <p #para>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Ab, consequatur recusandae quia est, 
+            doloremque amet perspiciatis deleniti quisquam voluptate unde facere hic natus eius impedit corporis tenetur iusto? Nulla, voluptatibus.
+        </p>
+        <p #para>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+            Aspernatur temporibus nihil quia voluptas facilis debitis molestias, 
+            natus culpa eaque voluptates nemo, iste voluptatibus illum assumenda harum itaque illo laudantium officia!
+        </p>
+        <app-test [name]="'Mary Jane'"></app-test>
+        <app-test [name]="'John Lopez'"></app-test>
+        <app-test [name]="'Juan Manuel'"></app-test>
+        <app-test [name]="'Juan Marcos'"></app-test>
     </app-child>
     <button (click)="showParaValue()">Show</button>
 </div>
