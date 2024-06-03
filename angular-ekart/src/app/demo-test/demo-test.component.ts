@@ -10,5 +10,8 @@ import { ParentComponent } from './parent/parent.component';
   styleUrl: './demo-test.component.css'
 })
 export class DemoTestComponent {
-
+  title = 'Angular-lifecycle-hook';
+  constructor(){
+   console.log('Demo-test component constructor called.');
+  }
 }

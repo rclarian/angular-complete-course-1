@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, Input } from '@angular/core';
 import { ChildComponent } from './child/child.component';
 import { TestComponent } from '../test/test.component';
 
@@ -10,9 +10,16 @@ import { TestComponent } from '../test/test.component';
   styleUrl: './parent.component.css'
 })
 export class ParentComponent {
-  @ViewChild('para') paraEl: ElementRef;
+  // @ViewChild('para') paraEl: ElementRef;
 
-  showParaValue(){
-    console.log(this.paraEl.nativeElement);
+  // showParaValue(){
+  //   console.log(this.paraEl.nativeElement);
+  // }
+
+  title: string = 'Parent Component';
+  @Input() message: string = 'Hello';
+  constructor(){
+    console.log(this.title);
+    console.log(this.message);
   }
 }
