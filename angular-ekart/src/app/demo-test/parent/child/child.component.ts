@@ -1,4 +1,5 @@
 import { Component, ContentChild, ElementRef } from '@angular/core';
+import { TestComponent } from '../../test/test.component';
 
 @Component({
   selector: 'app-child',
@@ -10,7 +11,10 @@ import { Component, ContentChild, ElementRef } from '@angular/core';
 export class ChildComponent {
   @ContentChild('para') paragraphEl: ElementRef;
 
+  @ContentChild(TestComponent) testEl: TestComponent;
+
   StyleParagraph(){
     console.log(this.paragraphEl.nativeElement);
+    console.log(this.testEl.name);
   }
 }

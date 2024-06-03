@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ParentComponent } from './parent/parent.component';
 
+
 @Component({
   selector: 'demo-test',
   standalone: true,
