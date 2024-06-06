@@ -1,7 +1,7 @@
 
 
 <div class="container">
-    <input type="text" #inputEl>
+    <input type="text" #inputEl (focus)="0">
     <button (click)="onBtnClicked(inputEl)">Submit</button>
     <app-parent [message]="inputVal"></app-parent>
     

@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, Input, OnChanges, SimpleChanges, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, Input, OnChanges, SimpleChanges, OnInit, DoCheck } from '@angular/core';
 import {NgFor, NgForOf, CommonModule} from "@angular/common";
 import { ChildComponent } from './child/child.component';
 import { TestComponent } from '../test/test.component';
@@ -10,7 +10,7 @@ import { TestComponent } from '../test/test.component';
   templateUrl: './parent.component.html',
   styleUrl: './parent.component.css'
 })
-export class ParentComponent implements OnChanges, OnInit{
+export class ParentComponent implements OnChanges, OnInit, DoCheck{
   @ViewChild('para') paraEl: ElementRef;
 
   showParaValue(){
@@ -18,7 +18,7 @@ export class ParentComponent implements OnChanges, OnInit{
   }
 
   title: string = 'Parent Component';
-  @Input() message: string[];
+  @Input() message: string;
 
   @ViewChild('temp') tempPara: ElementRef;
 
@@ -39,4 +39,7 @@ export class ParentComponent implements OnChanges, OnInit{
     //console.log(this.tempPara.nativeElement.innerHTML);
   }
 
+  ngDoCheck(){
+    console.log('ngDoCheck hook called');
+  }
 }
