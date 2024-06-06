@@ -4,7 +4,7 @@
     <input type="text" #inputEl (focus)="0">
     <button (click)="onBtnClicked(inputEl)">Submit</button>
     <app-parent [message]="inputVal">
-        <p #temp>This is projected content</p>
+        <p #temp>User has entered the following text: {{inputVal}}</p>
     </app-parent>
     
 </div>
