@@ -1,4 +1,9 @@
-import { Component, ElementRef, ViewChild, Input, OnChanges, SimpleChanges, OnInit, DoCheck, AfterContentInit, ContentChild, AfterContentChecked } from '@angular/core';
+import { Component, ElementRef, 
+  ViewChild, Input, OnChanges, 
+  SimpleChanges, OnInit, 
+  DoCheck, AfterContentInit, 
+  ContentChild, AfterContentChecked, 
+  AfterViewInit } from '@angular/core';
 import {NgFor, NgForOf, CommonModule} from "@angular/common";
 import { ChildComponent } from './child/child.component';
 import { TestComponent } from '../test/test.component';
@@ -10,7 +15,7 @@ import { TestComponent } from '../test/test.component';
   templateUrl: './parent.component.html',
   styleUrl: './parent.component.css'
 })
-export class ParentComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked{
+export class ParentComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit{
   @ViewChild('para') paraEl: ElementRef;
 
   showParaValue(){
@@ -36,7 +41,7 @@ export class ParentComponent implements OnChanges, OnInit, DoCheck, AfterContent
   }
 
   ngOnInit(){
-    //console.log('ngOnInit hook called');
+    console.log('ngOnInit hook called');
     //console.log(this.tempPara.nativeElement.innerHTML);
   }
 
@@ -52,6 +57,11 @@ export class ParentComponent implements OnChanges, OnInit, DoCheck, AfterContent
 
   ngAfterContentChecked() {
     console.log('ngAfterContentChecked hook called');
-    console.log('In ngAfterContentChecked',  this.paraContent.nativeElement);
+    console.log('In ngAfterContentChecked',  this.tempPara);
+  }
+
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit hook called');
+    console.log('In ngAfterViewInit',  this.tempPara);
   }
 }

@@ -22,5 +22,10 @@ export class DemoTestComponent {
     this.inputVal = inputEl.value;
   }
 
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit hook of app component called');
+    //console.log('In ngAfterViewInit',  this.tempPara);
+  }
+
   
 }
