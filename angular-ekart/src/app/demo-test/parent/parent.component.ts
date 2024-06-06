@@ -3,7 +3,7 @@ import { Component, ElementRef,
   SimpleChanges, OnInit, 
   DoCheck, AfterContentInit, 
   ContentChild, AfterContentChecked, 
-  AfterViewInit } from '@angular/core';
+  AfterViewInit, AfterViewChecked } from '@angular/core';
 import {NgFor, NgForOf, CommonModule} from "@angular/common";
 import { ChildComponent } from './child/child.component';
 import { TestComponent } from '../test/test.component';
@@ -15,7 +15,7 @@ import { TestComponent } from '../test/test.component';
   templateUrl: './parent.component.html',
   styleUrl: './parent.component.css'
 })
-export class ParentComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit{
+export class ParentComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked{
   @ViewChild('para') paraEl: ElementRef;
 
   showParaValue(){
@@ -41,27 +41,32 @@ export class ParentComponent implements OnChanges, OnInit, DoCheck, AfterContent
   }
 
   ngOnInit(){
-    console.log('ngOnInit hook called');
+    //console.log('ngOnInit hook called');
     //console.log(this.tempPara.nativeElement.innerHTML);
   }
 
   ngDoCheck(){
-    console.log('ngDoCheck hook called');
+    //console.log('ngDoCheck hook called');
     //console.log('In ngDoCheck',  this.paraContent);
   }
 
   ngAfterContentInit(){
-    console.log('ngAfterContentInit hook called');
+    //console.log('ngAfterContentInit hook called');
     //console.log('In ngAfterContentInit',  this.paraContent.nativeElement);
   }
 
   ngAfterContentChecked() {
-    console.log('ngAfterContentChecked hook called');
-    console.log('In ngAfterContentChecked',  this.tempPara);
+    //console.log('ngAfterContentChecked hook called');
+    //console.log('In ngAfterContentChecked',  this.tempPara);
   }
 
   ngAfterViewInit() {
     console.log('ngAfterViewInit hook called');
-    console.log('In ngAfterViewInit',  this.tempPara);
+    //console.log('In ngAfterViewInit',  this.tempPara);
+  }
+
+  ngAfterViewChecked(){
+    console.log('ngAfterViewChecked hook called');
+    console.log(this.tempPara.nativeElement.textContent);
   }
 }

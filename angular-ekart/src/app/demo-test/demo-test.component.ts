@@ -27,5 +27,9 @@ export class DemoTestComponent {
     //console.log('In ngAfterViewInit',  this.tempPara);
   }
 
+  ngAfterViewChecked () {
+    console.log('ngAfterViewChecked hook of app component called');
+    //console.log('In ngAfterViewInit',  this.tempPara);
+  }
   
 }
