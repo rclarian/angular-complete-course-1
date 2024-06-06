@@ -10,13 +10,15 @@ import { ParentComponent } from './parent/parent.component';
   styleUrl: './demo-test.component.css'
 })
 export class DemoTestComponent {
+
   title = 'Angular-lifecycle-hook';
-  inputVal: string = '';
+  inputVal: string[] = ['Hello', 'Hi There'];
+
   constructor(){
    console.log('Demo-test component constructor called.');
   }
 
   onBtnClicked(inputEl: HTMLInputElement){
-    this.inputVal = inputEl.value;
+    this.inputVal.push(inputEl.value);
   }
 }
