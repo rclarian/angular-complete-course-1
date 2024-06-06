@@ -5,6 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { TopHeaderComponent } from './top-header/top-header.component';
 import { ContainerComponent } from './container/container.component';
 import { DemoTestComponent } from './demo-test/demo-test.component';
+import { SetBackground } from './CustomDirectives/SetBackground.directive';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ import { DemoTestComponent } from './demo-test/demo-test.component';
     HeaderComponent,
     TopHeaderComponent,
     ContainerComponent,
-    DemoTestComponent
+    DemoTestComponent,
+    SetBackground,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

@@ -23,9 +23,9 @@ npm install
 cd src/app/header
 
 --Directives
-1.Component directive
-2.Attribute directive
-3.Structural directive
+Components Directive = Components
+Attribute Directive = ngStyle, ngClass
+Structural Directive = ngFor, ngIf
 
 --Property binding - []
 [disabled]="!(product.inStock > 0)"
@@ -61,5 +61,5 @@ main.ts = starting of the project.
 Child Component to Parent Component to Child component
 1. Child to Parent > Custom event binding & @Output() Decorator
 2. Parent to other Child > Custom property binding & @Input() Decorator
-
+---------------------------------------------------
 
