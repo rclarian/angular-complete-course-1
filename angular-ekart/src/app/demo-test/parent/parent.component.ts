@@ -3,7 +3,7 @@ import { Component, ElementRef,
   SimpleChanges, OnInit, 
   DoCheck, AfterContentInit, 
   ContentChild, AfterContentChecked, 
-  AfterViewInit, AfterViewChecked } from '@angular/core';
+  AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
 import {NgFor, NgForOf, CommonModule} from "@angular/common";
 import { ChildComponent } from './child/child.component';
 import { TestComponent } from '../test/test.component';
@@ -15,7 +15,7 @@ import { TestComponent } from '../test/test.component';
   templateUrl: './parent.component.html',
   styleUrl: './parent.component.css'
 })
-export class ParentComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked{
+export class ParentComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy{
   @ViewChild('para') paraEl: ElementRef;
 
   showParaValue(){
@@ -67,6 +67,9 @@ export class ParentComponent implements OnChanges, OnInit, DoCheck, AfterContent
 
   ngAfterViewChecked(){
     console.log('ngAfterViewChecked hook called');
-    console.log(this.tempPara.nativeElement.textContent);
+    //console.log(this.tempPara.nativeElement.textContent);
+  }
+  ngOnDestroy() {
+    console.log('ngOnDestroy hook called');
   }
 }
