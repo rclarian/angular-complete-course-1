@@ -21,4 +21,6 @@ export class DemoTestComponent {
   onBtnClicked(inputEl: HTMLInputElement){
     this.inputVal = inputEl.value;
   }
+
+  
 }
