@@ -13,6 +13,7 @@ export class DemoTestComponent {
 
   title = 'Angular-lifecycle-hook';
   inputVal: string = '';
+  toDestroy: boolean = false;
 
   constructor(){
    console.log('Demo-test component constructor called.');
