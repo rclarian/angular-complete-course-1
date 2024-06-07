@@ -19,6 +19,7 @@ import { DemoTestComponent } from './demo-test/demo-test.component';
 import { ParentComponent } from './demo-test/parent/parent.component';
 import { TestComponent } from './demo-test/test/test.component';
 import { ChildComponent } from './demo-test/parent/child/child.component';
+import { SetBackground } from './CustomDirectives/SetBackground.directive';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ChildComponent } from './demo-test/parent/child/child.component';
     DemoTestComponent,
     ParentComponent,
     TestComponent,
-    ChildComponent
+    ChildComponent,
+    SetBackground
   ],
   imports: [
     BrowserModule,
