@@ -1,0 +1,40 @@
+<div class="ekart--product--container">
+    <!-- <img [src]="product.pImage" alt="">
+    <p>Name: {{ product.name }}</p>
+    <p>Price: {{ '$' + product.price }}</p>
+    <p>Color: {{ product.color }}</p>
+    <p>Discounted Price: {{'$' + getDiscountedPrice() }}</p>
+    <p>{{ product.inStock > 0 ? 'Only' + ' ' + product.inStock + ' ' + 'items left' : 'Not in Stock' }}</p> -->
+    <!-- <button [disabled]="!(product.inStock > 0)">Buy Now</button> -->
+    <!-- disabled, hidden, checked -- example of property binding -->
+    <!-- <input (input)="onNameChange($event)">
+    <p>name={{name}}</p> -->
+    <!-- <button (click)="decrementCartValue()">-</button>
+    <span>{{addToCart}}</span>
+    <button (click)="incrementCartValue()">+</button> -->
+    <app-search (searchTextChangedChild)="setSearchText($event)"></app-search>
+    <!-- <div *ngFor="let item of listOfString">
+        <p>Current name is: {{item}}</p>
+    </div> -->
+    <product-list [searchTextProductList]="searchTextContainer" #productListComponent></product-list>
+    <product-detail *ngIf="productListComponent.selectedProduct" [productListComp]="productListComponent"></product-detail>
+    
+    <div class="ekart-featured-products">
+        <div class="ekart-featured-product-heading">
+            <h1>Latest Arrival in Popular Brands</h1>
+        </div>
+
+        <featured-brands>
+            <h3 class="title">New Arrivals in Nike</h3>
+            <button class="call-to-action">Show New Arrival in Nike</button>
+        </featured-brands>
+        <featured-brands>
+            <h3 class="title">New Arrivals in Adidas</h3>
+            <button class="call-to-action">Show New Arrival in Adidas</button>
+        </featured-brands>
+        <featured-brands>
+            <h3 class="title">New Arrivals in Reebok</h3>
+            <button class="call-to-action">Show New Arrival in Reebok</button>
+        </featured-brands>
+    </div>
+</div>
