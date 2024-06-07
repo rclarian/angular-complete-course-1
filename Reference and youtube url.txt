@@ -21,6 +21,9 @@ local: http://localhost:4200/
 ng g c header --skip-tests
 ng g c topHeader
 
+--Add directive
+ng g d highlight --skip--tests
+
 --node_modules, not included in commit, 
 npm install
 

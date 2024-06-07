@@ -18,6 +18,6 @@ export class SetBackground implements OnInit{
         // this.element.nativeElement.style.color = 'white';
         this.renderer.setStyle(this.element.nativeElement, 'backgroundColor', '#36454F');
         this.renderer.setStyle(this.element.nativeElement, 'color', 'white');
-        this.renderer.setAttribute(this.element.nativeElement, 'title', 'This is example title');
+        //this.renderer.setAttribute(this.element.nativeElement, 'title', 'This is example title');
     }
 }
