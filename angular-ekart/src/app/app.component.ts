@@ -17,7 +17,7 @@ import { SetBackground } from './CustomDirectives/SetBackground.directive';
     TopHeaderComponent,
     ContainerComponent,
     DemoTestComponent,
-    SetBackground,
+    // SetBackground,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
