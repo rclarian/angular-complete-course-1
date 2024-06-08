@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <input type="text" #inputEl (focus)="0">
     <button (click)="onBtnClicked(inputEl)">Submit</button>
     <app-parent [message]="inputVal" *ngIf="!toDestroy">
@@ -7,4 +7,9 @@
     <br><br>
     <button (click)="DestroyComponent()">Show / Hide</button>
     
-</div>
+</div> -->
+
+<input type="text"  appSample> <!-- @HostBinding -->
+<input type="text"  [value]="textValue" (focus)="logValue()"> <!-- property and event binding-->
+<input type="text"  [value]="textValue" appSample> <!-- @HostBinding-->
+<button>Click Me</button>

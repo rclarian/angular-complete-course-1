@@ -31,4 +31,10 @@ export class DemoTestComponent {
   DestroyComponent() {
     this.toDestroy = !this.toDestroy;
   }
+
+  textValue: string = 'Hello, World,';
+
+  logValue(){
+    console.log('Input has been focused!');
+  }
 }
