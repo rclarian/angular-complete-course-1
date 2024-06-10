@@ -23,6 +23,7 @@ import { SetBackground } from './CustomDirectives/SetBackground.directive';
 import { HighlightDirective } from './CustomDirectives/highlight.directive';
 import { AppHoverDirective } from './CustomDirectives/app-hover.directive';
 import { SampleDirective } from './CustomDirectives/sample.directive';
+import { DisableProductDirective } from './CustomDirectives/disable-product.directive';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { SampleDirective } from './CustomDirectives/sample.directive';
     SetBackground,
     HighlightDirective,
     AppHoverDirective,
-    SampleDirective
+    SampleDirective,
+    DisableProductDirective
   ],
   imports: [
     BrowserModule,
