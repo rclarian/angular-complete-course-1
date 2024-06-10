@@ -7,8 +7,9 @@ import { Directive, ElementRef, Input, OnInit, Renderer2 } from "@angular/core";
 export class SetBackground implements OnInit{
     //private element: ElementRef;
     //private renderer: Renderer2;
-    @Input() backColor: string = '#36454F';
+    @Input('setBackground') backColor: string = '#36454F';
     @Input() textColor: string = 'white';
+    
 
     constructor(private element: ElementRef, private renderer: Renderer2){
         //this.element = element;
