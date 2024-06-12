@@ -37,4 +37,6 @@ export class DemoTestComponent {
   logValue(){
     console.log('Input has been focused!');
   }
+
+  active: boolean = true;
 }
