@@ -9,7 +9,7 @@ export class ClassDirective {
 
   }
 
-  @Input() set appClass(value: Object){
+  @Input('appClass') set display(value: Object){
     let entries = Object.entries(value);
 
     for(let item of entries){
