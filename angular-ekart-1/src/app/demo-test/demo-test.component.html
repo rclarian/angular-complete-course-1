@@ -9,7 +9,16 @@
     
 </div> -->
 
-<input type="text"  appSample> <!-- @HostBinding -->
-<input type="text"  [value]="textValue" (focus)="logValue()"> <!-- property and event binding-->
-<input type="text"  [value]="textValue" appSample> <!-- @HostBinding-->
-<button>Click Me</button>
+<!--<input type="text"  appSample> --><!-- @HostBinding -->
+<!--<input type="text"  [value]="textValue" (focus)="logValue()">--> <!-- property and event binding-->
+<!--<input type="text"  [value]="textValue" appSample>--> <!-- @HostBinding-->
+<!--<button>Click Me</button>-->
+
+<h2>Custom Class & Style Directive</h2>
+<div [ngClass]="{appHighlight: 10 > 7, 'app-container': true}">
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Maiores quasi laboriosam modi corrupti eligendi facere veritatis quae deserunt tempora sapiente, 
+        molestias, a illum aliquid assumenda ipsum harum minima quaerat quas.
+    </p>
+</div>
