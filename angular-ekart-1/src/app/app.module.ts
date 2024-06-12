@@ -25,6 +25,7 @@ import { AppHoverDirective } from './CustomDirectives/app-hover.directive';
 import { SampleDirective } from './CustomDirectives/sample.directive';
 import { DisableProductDirective } from './CustomDirectives/disable-product.directive';
 import { ClassDirective } from './CustomDirectives/class.directive';
+import { StyleDirective } from './CustomDirectives/style.directive';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ClassDirective } from './CustomDirectives/class.directive';
     AppHoverDirective,
     SampleDirective,
     DisableProductDirective,
-    ClassDirective
+    ClassDirective,
+    StyleDirective
   ],
   imports: [
     BrowserModule,

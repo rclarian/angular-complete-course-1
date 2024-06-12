@@ -38,5 +38,5 @@ export class DemoTestComponent {
     console.log('Input has been focused!');
   }
 
-  active: boolean = true;
+  active: boolean = false;
 }
