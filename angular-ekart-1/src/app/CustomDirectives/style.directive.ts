@@ -9,7 +9,7 @@ export class StyleDirective {
 
   }
 
-  @Input() set appStyle(styles: Object){
+  @Input('appStyle') set style(styles: Object){
     let styleEntries = Object.entries(styles);
 
     for(let item of styleEntries){
