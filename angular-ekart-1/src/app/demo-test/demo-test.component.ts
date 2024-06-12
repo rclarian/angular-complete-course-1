@@ -39,4 +39,10 @@ export class DemoTestComponent {
   }
 
   active: boolean = false;
+  display: boolean = false;
+
+  displayTermsOfServices(){
+    this.display = true;
+  }
+
 }

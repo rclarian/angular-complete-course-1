@@ -13,20 +13,41 @@
 <!--<input type="text"  [value]="textValue" (focus)="logValue()">--> <!-- property and event binding-->
 <!--<input type="text"  [value]="textValue" appSample>--> <!-- @HostBinding-->
 <!--<button>Click Me</button>-->
-
-<h2>Custom Class & Style Directive</h2>
-<div [appClass] ="{'app-container': true, appHighlight: true, appFont: 5 > 2}">
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Maiores quasi laboriosam modi corrupti eligendi facere veritatis quae deserunt tempora sapiente, 
-        molestias, a illum aliquid assumenda ipsum harum minima quaerat quas.
-    </p>
-</div>
-
-<div class="app-container" [appStyle]="{backgroundColor: active ? 'green' : 'red', color: active ? 'white' : 'black'}">
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Maiores quasi laboriosam modi corrupti eligendi facere veritatis quae deserunt tempora sapiente, 
-        molestias, a illum aliquid assumenda ipsum harum minima quaerat quas.
-    </p>
+<div class="notice-container">
+    <div class="notice-header">
+        <button (click)="displayTermsOfServices()">+</button>
+    </div>
+    <div class="notice-info">
+        <p>Read terms of services and privacy policy</p>
+    </div>
+    <!-- <ng-template [ngIf]="display" [ngIfElse]="myTempVar"> -->
+        <div class="notice-body" *ngIf="display; else myTempVar">
+            <h1>Terms of services & privacy policy</h1>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                Ipsum quam voluptate aspernatur impedit magni explicabo quis dolores dignissimos? 
+                Ipsa ratione explicabo sit dicta nobis? Ducimus in repellat itaque ratione molestias?
+            </p>
+            <h2>Terms of services</h2>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime excepturi dolor eveniet praesentium libero, 
+                illo in, consequatur voluptatum quidem veritatis aspernatur laborum aut ut vel natus iusto velit voluptate minima?
+            </p>
+            <h2>Privacy Policy</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam numquam qui non nostrum. 
+                Distinctio quisquam voluptatum cupiditate quae asperiores impedit totam placeat quia quam repudiandae. 
+                Distinctio illo illum error quasi.
+            </p>
+        </div>
+        <ng-template #myTempVar>
+            <div class="notice-body" >
+                <p>
+                    Ryan Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Impedit tempora cupiditate eligendi dolorum porro ut, nobis illum eius sit maxime expedita blanditiis, 
+                    officiis corrupti debitis ab ipsam vel molestiae ratione?
+                </p>
+            </div>
+        </ng-template>
+    <!-- </ng-template> -->
 </div>
