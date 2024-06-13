@@ -45,4 +45,8 @@ export class DemoTestComponent {
     this.display = true;
   }
 
+  hideTermsOfServices(){
+    this.display = false;
+  }
+
 }
