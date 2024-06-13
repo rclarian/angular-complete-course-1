@@ -26,6 +26,7 @@ import { SampleDirective } from './CustomDirectives/sample.directive';
 import { DisableProductDirective } from './CustomDirectives/disable-product.directive';
 import { ClassDirective } from './CustomDirectives/class.directive';
 import { StyleDirective } from './CustomDirectives/style.directive';
+import { IfDirective } from './CustomDirectives/if.directive';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { StyleDirective } from './CustomDirectives/style.directive';
     SampleDirective,
     DisableProductDirective,
     ClassDirective,
-    StyleDirective
+    StyleDirective,
+    IfDirective
   ],
   imports: [
     BrowserModule,

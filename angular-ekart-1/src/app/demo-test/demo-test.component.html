@@ -22,7 +22,8 @@
         <p>Read terms of services and privacy policy</p>
     </div>
     <!-- <ng-template [ngIf]="display" [ngIfElse]="myTempVar"> -->
-        <div class="notice-body" *ngIf="display; else myTempVar">
+        <!-- <div class="notice-body" *ngIf="display; else myTempVar"> -->
+        <div class="notice-body" *appIf="display">
             <h1>Terms of services & privacy policy</h1>
             <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
@@ -41,7 +42,7 @@
                 Distinctio illo illum error quasi.
             </p>
         </div>
-        <ng-template #myTempVar>
+        <!-- <ng-template #myTempVar>
             <div class="notice-body" >
                 <p>
                     Ryan Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -49,6 +50,6 @@
                     officiis corrupti debitis ab ipsam vel molestiae ratione?
                 </p>
             </div>
-        </ng-template>
+        </ng-template> -->
     <!-- </ng-template> -->
 </div>
