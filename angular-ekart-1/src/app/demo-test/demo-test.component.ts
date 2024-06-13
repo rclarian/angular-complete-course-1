@@ -49,4 +49,19 @@ export class DemoTestComponent {
     this.display = false;
   }
 
+  tab: string = '';
+
+  onInfoClicked(){
+    this.tab = 'info';
+  }
+  onServiceClicked(){
+    this.tab = 'service';
+  }
+  onPrivacyClicked(){
+    this.tab = 'privacy';
+  }
+  onUserAggrementClicked(){
+    this.tab = 'user';
+  }
+
 }

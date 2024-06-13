@@ -13,43 +13,67 @@
 <!--<input type="text"  [value]="textValue" (focus)="logValue()">--> <!-- property and event binding-->
 <!--<input type="text"  [value]="textValue" appSample>--> <!-- @HostBinding-->
 <!--<button>Click Me</button>-->
+
 <div class="notice-container">
     <div class="notice-header">
-        <button (click)="displayTermsOfServices()" *ngIf="!display">Show</button>
-        <button (click)="hideTermsOfServices()" *ngIf="display">Hide</button>
+        <button (click)="onInfoClicked()">Info</button>
+        <button (click)="onServiceClicked()">Service</button>
+        <button (click)="onPrivacyClicked()">Privacy</button>
+        <button (click)="onUserAggrementClicked()">User Aggrement</button>
     </div>
-    <div class="notice-info">
-        <p>Read terms of services and privacy policy</p>
-    </div>
-    <!-- <ng-template [ngIf]="display" [ngIfElse]="myTempVar"> -->
-        <!-- <div class="notice-body" *ngIf="display; else myTempVar"> -->
-        <div class="notice-body" *appIf="display">
+    <div class="notice-body" [ngSwitch]="tab">
+        <!-- Default service & Aggrement page -->
+         <div *ngSwitchDefault>
             <h1>Terms of services & privacy policy</h1>
             <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                Ipsum quam voluptate aspernatur impedit magni explicabo quis dolores dignissimos? 
-                Ipsa ratione explicabo sit dicta nobis? Ducimus in repellat itaque ratione molestias?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Magnam consequatur eveniet tempore asperiores corporis odio modi, 
+                non facilis dicta earum itaque optio dolorum laudantium eum ipsam deleniti similique? Delectus, nemo.
             </p>
-            <h2>Terms of services</h2>
+         </div>
+
+         <!-- Terms of service page -->
+          <div *ngSwitchCase="'service'">
+            <h2>Terms of Services</h2>
             <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime excepturi dolor eveniet praesentium libero, 
-                illo in, consequatur voluptatum quidem veritatis aspernatur laborum aut ut vel natus iusto velit voluptate minima?
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. In tempore culpa ea fuga similique dolor odio nemo, 
+                facilis voluptatibus veniam accusamus. Doloremque excepturi pariatur, nobis ad ipsum fuga cupiditate sint!
             </p>
+
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio omnis facere incidunt placeat officia earum harum nisi, 
+                voluptatum non aliquid at quibusdam beatae labore repellendus, neque magnam consequuntur, mollitia assumenda?
+            </p>
+          </div>
+
+          <!-- Privacy policy page -->
+           <div *ngSwitchCase="'privacy'">
             <h2>Privacy Policy</h2>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam numquam qui non nostrum. 
-                Distinctio quisquam voluptatum cupiditate quae asperiores impedit totam placeat quia quam repudiandae. 
-                Distinctio illo illum error quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla animi, 
+                illum voluptatem mollitia dignissimos quisquam placeat ut laboriosam? 
+                Maxime dignissimos culpa provident nostrum voluptas asperiores impedit magni aliquam consectetur harum.
             </p>
-        </div>
-        <!-- <ng-template #myTempVar>
-            <div class="notice-body" >
+
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur incidunt veritatis ipsum dignissimos, 
+                dolore sed cum eius fugit maxime qui placeat minima error accusantium! Autem, voluptatum voluptates? Officia, ea vero?
+            </p>
+           </div>
+
+           <!-- User aggrement page -->
+            <div *ngSwitchCase="'user'">
+                <h2>User Aggrement</h2>
                 <p>
-                    Ryan Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Impedit tempora cupiditate eligendi dolorum porro ut, nobis illum eius sit maxime expedita blanditiis, 
-                    officiis corrupti debitis ab ipsam vel molestiae ratione?
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                    Aliquam vero iste officiis minus consequuntur ducimus non reprehenderit assumenda, facilis officia nobis, 
+                    explicabo nesciunt nemo similique natus cum omnis sed dolorum.
+                </p>
+
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam explicabo neque voluptates facilis dolorem delectus ratione corrupti, 
+                    minus eos id voluptatem tempore necessitatibus quidem deserunt rerum fugiat sequi perferendis sunt.
                 </p>
             </div>
-        </ng-template> -->
-    <!-- </ng-template> -->
+    </div>
 </div>
