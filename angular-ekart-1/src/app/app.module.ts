@@ -34,6 +34,7 @@ import { Admin1Component } from './demo-test/header1/admin1/admin1.component';
 import { Home1Component } from './demo-test/header1/home1/home1.component';
 import { Hero1Component } from './demo-test/header1/home1/hero1/hero1.component';
 import { Sidebar1Component } from './demo-test/header1/home1/sidebar1/sidebar1.component';
+import { SubscribeService } from './Services/subscribe.service';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { Sidebar1Component } from './demo-test/header1/home1/sidebar1/sidebar1.c
     FormsModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    SubscribeService
   ],
   bootstrap: [AppComponent]
 })

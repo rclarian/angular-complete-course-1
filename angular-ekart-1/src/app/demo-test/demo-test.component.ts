@@ -1,9 +1,11 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { SubscribeService } from '../Services/subscribe.service';
 
 @Component({
   selector: 'demo-test',
   templateUrl: './demo-test.component.html',
   styleUrl: './demo-test.component.css'
+  //providers: [SubscribeService]
   //encapsulation: ViewEncapsulation.ShadowDom
 })
 export class DemoTestComponent {
