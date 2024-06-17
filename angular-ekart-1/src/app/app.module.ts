@@ -29,6 +29,10 @@ import { StyleDirective } from './CustomDirectives/style.directive';
 import { IfDirective } from './CustomDirectives/if.directive';
 import { Comp1Component } from './demo-test/comp1/comp1.component';
 import { Comp2Component } from './demo-test/comp2/comp2.component';
+import { AdminComponent } from './demo-test/header/admin/admin.component';
+import { HomeComponent } from './demo-test/header/home/home.component';
+import { HeroComponent } from './demo-test/header/home/hero/hero.component';
+import { SidebarComponent } from './demo-test/header/home/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +61,11 @@ import { Comp2Component } from './demo-test/comp2/comp2.component';
     StyleDirective,
     IfDirective,
     Comp1Component,
-    Comp2Component
+    Comp2Component,
+    AdminComponent,
+    HomeComponent,
+    HeroComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
