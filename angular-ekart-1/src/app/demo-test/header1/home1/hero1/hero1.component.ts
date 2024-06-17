@@ -4,13 +4,18 @@ import { SubscribeService } from '../../../../Services/subscribe.service';
 @Component({
   selector: 'app-hero1',
   templateUrl: './hero1.component.html',
-  styleUrl: './hero1.component.css'
+  styleUrl: './hero1.component.css',
+  providers: [SubscribeService] //2. What to provide
 })
 export class Hero1Component {
 
+   //1. How to provide dependency
+   constructor(private subService: SubscribeService){
+
+   }
 
   OnSubscribe(){
-    let subService = new SubscribeService();
-    subService.OnSubscribeClicked('daily');
+    //let subService = new SubscribeService();
+    this.subService.OnSubscribeClicked('daily');
   }
 }
