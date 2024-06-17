@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'demo-test',
   templateUrl: './demo-test.component.html',
   styleUrl: './demo-test.component.css'
+  //encapsulation: ViewEncapsulation.ShadowDom
 })
 export class DemoTestComponent {
   title = 'Angular-lifecycle-hook';

@@ -27,6 +27,8 @@ import { DisableProductDirective } from './CustomDirectives/disable-product.dire
 import { ClassDirective } from './CustomDirectives/class.directive';
 import { StyleDirective } from './CustomDirectives/style.directive';
 import { IfDirective } from './CustomDirectives/if.directive';
+import { Comp1Component } from './demo-test/comp1/comp1.component';
+import { Comp2Component } from './demo-test/comp2/comp2.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { IfDirective } from './CustomDirectives/if.directive';
     DisableProductDirective,
     ClassDirective,
     StyleDirective,
-    IfDirective
+    IfDirective,
+    Comp1Component,
+    Comp2Component
   ],
   imports: [
     BrowserModule,

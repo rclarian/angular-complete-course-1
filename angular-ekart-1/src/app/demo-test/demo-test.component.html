@@ -1,79 +1,13 @@
-<!-- <div class="container">
-    <input type="text" #inputEl (focus)="0">
-    <button (click)="onBtnClicked(inputEl)">Submit</button>
-    <app-parent [message]="inputVal" *ngIf="!toDestroy">
-        <p #temp>User has entered the following text: {{inputVal}}</p>
-    </app-parent>
-    <br><br>
-    <button (click)="DestroyComponent()">Show / Hide</button>
-    
-</div> -->
 
-<!--<input type="text"  appSample> --><!-- @HostBinding -->
-<!--<input type="text"  [value]="textValue" (focus)="logValue()">--> <!-- property and event binding-->
-<!--<input type="text"  [value]="textValue" appSample>--> <!-- @HostBinding-->
-<!--<button>Click Me</button>-->
-
-<div class="notice-container">
-    <div class="notice-header">
-        <button (click)="onInfoClicked()">Info</button>
-        <button (click)="onServiceClicked()">Service</button>
-        <button (click)="onPrivacyClicked()">Privacy</button>
-        <button (click)="onUserAggrementClicked()">User Aggrement</button>
+<div style="margin: 20px auto; width: 780px;">
+    <div class="app-component">
+        <h2>App Component</h2>
+        <p>This is <b>app</b> component</p>
+        <button>Button</button>
     </div>
-    <div class="notice-body" [ngSwitch]="tab">
-        <!-- Default service & Aggrement page -->
-         <div *ngSwitchDefault>
-            <h1>Terms of services & privacy policy</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Magnam consequatur eveniet tempore asperiores corporis odio modi, 
-                non facilis dicta earum itaque optio dolorum laudantium eum ipsam deleniti similique? Delectus, nemo.
-            </p>
-         </div>
-
-         <!-- Terms of service page -->
-          <div *ngSwitchCase="'service'">
-            <h2>Terms of Services</h2>
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. In tempore culpa ea fuga similique dolor odio nemo, 
-                facilis voluptatibus veniam accusamus. Doloremque excepturi pariatur, nobis ad ipsum fuga cupiditate sint!
-            </p>
-
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio omnis facere incidunt placeat officia earum harum nisi, 
-                voluptatum non aliquid at quibusdam beatae labore repellendus, neque magnam consequuntur, mollitia assumenda?
-            </p>
-          </div>
-
-          <!-- Privacy policy page -->
-           <div *ngSwitchCase="'privacy'">
-            <h2>Privacy Policy</h2>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla animi, 
-                illum voluptatem mollitia dignissimos quisquam placeat ut laboriosam? 
-                Maxime dignissimos culpa provident nostrum voluptas asperiores impedit magni aliquam consectetur harum.
-            </p>
-
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur incidunt veritatis ipsum dignissimos, 
-                dolore sed cum eius fugit maxime qui placeat minima error accusantium! Autem, voluptatum voluptates? Officia, ea vero?
-            </p>
-           </div>
-
-           <!-- User aggrement page -->
-            <div *ngSwitchCase="'user'">
-                <h2>User Aggrement</h2>
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                    Aliquam vero iste officiis minus consequuntur ducimus non reprehenderit assumenda, facilis officia nobis, 
-                    explicabo nesciunt nemo similique natus cum omnis sed dolorum.
-                </p>
-
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam explicabo neque voluptates facilis dolorem delectus ratione corrupti, 
-                    minus eos id voluptatem tempore necessitatibus quidem deserunt rerum fugiat sequi perferendis sunt.
-                </p>
-            </div>
+    
+    <div class="component-container">
+        <app-comp1></app-comp1>
+        <app-comp2></app-comp2>
     </div>
 </div>
