@@ -35,6 +35,8 @@ import { Home1Component } from './demo-test/header1/home1/home1.component';
 import { Hero1Component } from './demo-test/header1/home1/hero1/hero1.component';
 import { Sidebar1Component } from './demo-test/header1/home1/sidebar1/sidebar1.component';
 import { SubscribeService } from './Services/subscribe.service';
+import { UserList1Component } from './demo-test/header1/admin1/user-list1/user-list1.component';
+import { UserService } from './Services/user.service';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,8 @@ import { SubscribeService } from './Services/subscribe.service';
     Admin1Component,
     Home1Component,
     Hero1Component,
-    Sidebar1Component
+    Sidebar1Component,
+    UserList1Component
   ],
   imports: [
     BrowserModule,
@@ -77,7 +80,8 @@ import { SubscribeService } from './Services/subscribe.service';
   ],
   providers: [
     provideClientHydration(),
-    SubscribeService
+    SubscribeService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
