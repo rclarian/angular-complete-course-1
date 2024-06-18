@@ -1,5 +1,8 @@
+import { Injectable } from "@angular/core";
 import { User } from "../Models/User";
+import { LoggerService } from "./logger.service";
 
+@Injectable()
 export class UserService {
 
   users: User[] = [
@@ -8,6 +11,10 @@ export class UserService {
     new User('Mark Tyler', 'Male', 'Quarterly', 'Active')
   ];
 
+  constructor(private logger: LoggerService){
+
+  }
+
   GetAllUsers(){
     return this.users;
   }
@@ -15,5 +22,7 @@ export class UserService {
   CreateUser(name: string, gender: string, subType: string, status:string){
     let user = new User(name, gender, subType, status);
     this.users.push(user);
+
+    this.logger.LogMessage(name, status);
   }
 }

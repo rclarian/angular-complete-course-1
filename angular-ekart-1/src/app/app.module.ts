@@ -37,6 +37,7 @@ import { Sidebar1Component } from './demo-test/header1/home1/sidebar1/sidebar1.c
 import { SubscribeService } from './Services/subscribe.service';
 import { UserList1Component } from './demo-test/header1/admin1/user-list1/user-list1.component';
 import { UserService } from './Services/user.service';
+import { LoggerService } from './Services/logger.service';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { UserService } from './Services/user.service';
   providers: [
     provideClientHydration(),
     SubscribeService,
-    UserService
+    UserService,
+    LoggerService
   ],
   bootstrap: [AppComponent]
 })
