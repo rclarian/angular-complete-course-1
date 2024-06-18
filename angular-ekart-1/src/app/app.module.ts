@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
@@ -38,6 +38,8 @@ import { SubscribeService } from './Services/subscribe.service';
 import { UserList1Component } from './demo-test/header1/admin1/user-list1/user-list1.component';
 import { UserService } from './Services/user.service';
 import { LoggerService } from './Services/logger.service';
+
+export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE');
 
 @NgModule({
   declarations: [
@@ -82,8 +84,7 @@ import { LoggerService } from './Services/logger.service';
   providers: [
     provideClientHydration(),
     SubscribeService,
-    {provide: 'USER_SERVICE', useClass: UserService},
-    LoggerService
+    {provide: USER_TOKEN, useClass: UserService}  
   ],
   bootstrap: [AppComponent]
 })
