@@ -82,7 +82,7 @@ import { LoggerService } from './Services/logger.service';
   providers: [
     provideClientHydration(),
     SubscribeService,
-    UserService,
+    {provide: 'USER_SERVICE', useClass: UserService},
     LoggerService
   ],
   bootstrap: [AppComponent]
