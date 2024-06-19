@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { SubscribeService } from '../Services/subscribe.service';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'demo-test',
@@ -68,22 +68,28 @@ export class DemoTestComponent {
     this.tab = 'user';
   }
 
-  //#69 Creating & Using an Observable
+  //#69-71 Creating & Using an Observable
   data: any[] = [];
+
+  array1 = [1, 3, 5, 6, 9];
+  array2 = ['A', 'B', 'C', 'D'];
 
   //1.Create an OBSERVABLE
 
   //Observable
-  myObservable = new Observable((observer) => {
-    //observer.next([1, 2, 3, 4, 5]); //array
-    setTimeout(() => { observer.next(1)}, 1000); //data streaming
-    setTimeout(() => { observer.next(2)}, 2000);
-    setTimeout(() => { observer.next(3)}, 3000);
-    //setTimeout(() => { observer.error(new Error('Something wrong. Please try again later'))}, 3000);
-    setTimeout(() => { observer.next(4)}, 4000);
-    setTimeout(() => { observer.next(5)}, 5000);
-    setTimeout(() => { observer.complete()}, 6000);
-  });
+  // myObservable = new Observable((observer) => {
+  //   //observer.next([1, 2, 3, 4, 5]); //array
+  //   setTimeout(() => { observer.next(1)}, 1000); //data streaming
+  //   setTimeout(() => { observer.next(2)}, 2000);
+  //   setTimeout(() => { observer.next(3)}, 3000);
+  //   //setTimeout(() => { observer.error(new Error('Something wrong. Please try again later'))}, 3000);
+  //   setTimeout(() => { observer.next(4)}, 4000);
+  //   setTimeout(() => { observer.next(5)}, 5000);
+  //   setTimeout(() => { observer.complete()}, 6000);
+  // });
+
+  //of
+  myObservable = of(this.array1, this.array2, [22,'aa', 11, 'cc']);
 
   GetAsyncData(){
 
@@ -114,5 +120,5 @@ export class DemoTestComponent {
       }
     })
   }
-  //end #69
+  //end #69-71
 }
