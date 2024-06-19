@@ -91,8 +91,12 @@ export class DemoTestComponent {
   //of operator
   //myObservable = of(this.array1, this.array2, [22,'aa', 11, 'cc']);
 
+  promiseData = new Promise((resolve, reject) => {
+    resolve([10, 20, 30, 40, 50]);
+  })
+
   //from operator
-  myObservable = from(this.array1);
+  myObservable = from(this.promiseData);
 
   GetAsyncData(){
 
