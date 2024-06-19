@@ -79,18 +79,40 @@ export class DemoTestComponent {
     setTimeout(() => { observer.next(1)}, 1000); //data streaming
     setTimeout(() => { observer.next(2)}, 2000);
     setTimeout(() => { observer.next(3)}, 3000);
+    //setTimeout(() => { observer.error(new Error('Something wrong. Please try again later'))}, 3000);
     setTimeout(() => { observer.next(4)}, 4000);
     setTimeout(() => { observer.next(5)}, 5000);
+    setTimeout(() => { observer.complete()}, 6000);
   });
 
   GetAsyncData(){
 
     //Observer
     //call back function next, error, complete
-    this.myObservable.subscribe((val: any) => {
-      //this.data = val; //for array
-      this.data.push(val);
-    });
+    //Obsolete
+    // this.myObservable.subscribe((val: any) => {
+    //   //this.data = val; //for array
+    //   this.data.push(val);
+    // },
+    // (err) => {
+    //   alert(err.message);
+    // },
+    // () => {
+    //   alert('All the date is streamed');
+    // });
+
+    //Latest format
+    this.myObservable.subscribe({
+      next: (val: any) => {
+        this.data.push(val);
+      },
+      error(err){
+        alert(err.message);
+      },
+      complete(){
+        alert('All the date is streamed');
+      }
+    })
   }
   //end #69
 }
