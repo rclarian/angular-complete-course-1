@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { SubscribeService } from '../Services/subscribe.service';
-import { Observable, of } from 'rxjs';
+import { Observable, from, of } from 'rxjs';
 
 @Component({
   selector: 'demo-test',
@@ -88,8 +88,11 @@ export class DemoTestComponent {
   //   setTimeout(() => { observer.complete()}, 6000);
   // });
 
-  //of
-  myObservable = of(this.array1, this.array2, [22,'aa', 11, 'cc']);
+  //of operator
+  //myObservable = of(this.array1, this.array2, [22,'aa', 11, 'cc']);
+
+  //from operator
+  myObservable = from(this.array1);
 
   GetAsyncData(){
 
