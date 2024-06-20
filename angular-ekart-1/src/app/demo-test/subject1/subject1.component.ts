@@ -22,11 +22,14 @@ export class Subject1Component implements OnInit{
     //subject.next(Math.random());
 
     //Ajax call
+    const subject = new Subject();
     const data = ajax('https://randomuser.me/api/');
 
-    data.subscribe((res) => {console.log(res)});
-    data.subscribe((res) => {console.log(res)});
-    data.subscribe((res) => {console.log(res)});
+    subject.subscribe((res) => {console.log(res)});
+    subject.subscribe((res) => {console.log(res)});
+    subject.subscribe((res) => {console.log(res)});
+
+    data.subscribe(subject);
   }
 
 }
