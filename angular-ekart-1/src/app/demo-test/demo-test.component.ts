@@ -105,13 +105,17 @@ export class DemoTestComponent {
   //myObservable = from(this.promiseData);
   //myObservable - 2, 4, 6, 8, 10, 12
   //result - 10, 20, 30, 40, 50, 60
-  myObservable = from([2, 4, 6, 8, 10, 12]);
-
-  filteredObs = this.myObservable.pipe(map((val) => {
+  myObservable = from([2, 4, 6, 8, 10, 12]).pipe(map((val) => {
     return val * 5;
   }), filter((val, i) => {
     return val % 4 === 0;
   }));
+
+  // filteredObs = this.myObservable.pipe(map((val) => {
+  //   return val * 5;
+  // }), filter((val, i) => {
+  //   return val % 4 === 0;
+  // }));
 
   //result - 20, 40, 60
   // filteredObs = this.transformedObs.pipe(filter((val, i) => {
@@ -135,7 +139,7 @@ export class DemoTestComponent {
     // });
 
     //Latest format
-    this.filteredObs.subscribe({
+    this.myObservable.subscribe({
       next: (val: any) => {
         this.data.push(val);
       },
