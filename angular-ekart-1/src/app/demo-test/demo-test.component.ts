@@ -1,6 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, ViewChild, ViewEncapsulation, AfterViewInit } from '@angular/core';
 import { SubscribeService } from '../Services/subscribe.service';
-import { Observable, from, of } from 'rxjs';
+import { Observable, from, fromEvent, of } from 'rxjs';
 
 @Component({
   selector: 'demo-test',
@@ -9,7 +9,7 @@ import { Observable, from, of } from 'rxjs';
   //providers: [SubscribeService]
   //encapsulation: ViewEncapsulation.ShadowDom
 })
-export class DemoTestComponent {
+export class DemoTestComponent implements AfterViewInit{
   title = 'Angular-lifecycle-hook';
   inputVal: string = '';
   toDestroy: boolean = false;
@@ -68,11 +68,16 @@ export class DemoTestComponent {
     this.tab = 'user';
   }
 
-  //#69-71 Creating & Using an Observable
+  //#69-72 Creating & Using an Observable
   data: any[] = [];
 
   array1 = [1, 3, 5, 6, 9];
   array2 = ['A', 'B', 'C', 'D'];
+
+  @ViewChild('createbtn')
+  createBtn: ElementRef;
+
+  createBtnObs;
 
   //1.Create an OBSERVABLE
 
@@ -127,5 +132,24 @@ export class DemoTestComponent {
       }
     })
   }
-  //end #69-71
+
+  buttonClicked(){
+    let count = 0;
+    this.createBtnObs = fromEvent(this.createBtn.nativeElement, 'click').subscribe((data) => {
+      console.log(data);
+      this.showItem(++count);
+    });
+  }
+
+  ngAfterViewInit(){
+    this.buttonClicked();
+  }
+
+  showItem(val: number){
+    let div = document.createElement('div');
+    div.innerText = 'Item' + ' ' + val;
+    div.className = 'data-list';
+    document.getElementById('container').appendChild(div);
+  }
+  //end #69-72
 }
