@@ -107,14 +107,16 @@ export class DemoTestComponent {
   //result - 10, 20, 30, 40, 50, 60
   myObservable = from([2, 4, 6, 8, 10, 12]);
 
-  transformedObs = this.myObservable.pipe(map((val) => {
+  filteredObs = this.myObservable.pipe(map((val) => {
     return val * 5;
+  }), filter((val, i) => {
+    return val % 4 === 0;
   }));
 
   //result - 20, 40, 60
-  filteredObs = this.transformedObs.pipe(filter((val, i) => {
-    return val % 4 === 0;
-  }));
+  // filteredObs = this.transformedObs.pipe(filter((val, i) => {
+  //   return val % 4 === 0;
+  // }));
 
   GetAsyncData(){
 
