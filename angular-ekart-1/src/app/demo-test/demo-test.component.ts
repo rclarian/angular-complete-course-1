@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild, ViewEncapsulation, AfterViewInit } from '@angular/core';
 import { SubscribeService } from '../Services/subscribe.service';
 import { Observable, from, fromEvent, of } from 'rxjs';
+import { map} from 'rxjs/operators';
 
 @Component({
   selector: 'demo-test',
@@ -9,7 +10,7 @@ import { Observable, from, fromEvent, of } from 'rxjs';
   //providers: [SubscribeService]
   //encapsulation: ViewEncapsulation.ShadowDom
 })
-export class DemoTestComponent implements AfterViewInit{
+export class DemoTestComponent {
   title = 'Angular-lifecycle-hook';
   inputVal: string = '';
   toDestroy: boolean = false;
@@ -101,7 +102,14 @@ export class DemoTestComponent implements AfterViewInit{
   })
 
   //from operator
-  myObservable = from(this.promiseData);
+  //myObservable = from(this.promiseData);
+  //myObservable - 2, 4, 6, 8, 10
+  //result - 10, 20, 30, 40, 50
+  myObservable = from([2, 4, 6, 8, 10]);
+
+  trnasformedObs = this.myObservable.pipe(map((val) => {
+    return val * 5;
+  }));
 
   GetAsyncData(){
 
@@ -120,7 +128,7 @@ export class DemoTestComponent implements AfterViewInit{
     // });
 
     //Latest format
-    this.myObservable.subscribe({
+    this.trnasformedObs.subscribe({
       next: (val: any) => {
         this.data.push(val);
       },
@@ -133,23 +141,23 @@ export class DemoTestComponent implements AfterViewInit{
     })
   }
 
-  buttonClicked(){
-    let count = 0;
-    this.createBtnObs = fromEvent(this.createBtn.nativeElement, 'click').subscribe((data) => {
-      console.log(data);
-      this.showItem(++count);
-    });
-  }
+  // buttonClicked(){
+  //   let count = 0;
+  //   this.createBtnObs = fromEvent(this.createBtn.nativeElement, 'click').subscribe((data) => {
+  //     console.log(data);
+  //     this.showItem(++count);
+  //   });
+  // }
 
-  ngAfterViewInit(){
-    this.buttonClicked();
-  }
+  // ngAfterViewInit(){
+  //   this.buttonClicked();
+  // }
 
-  showItem(val: number){
-    let div = document.createElement('div');
-    div.innerText = 'Item' + ' ' + val;
-    div.className = 'data-list';
-    document.getElementById('container').appendChild(div);
-  }
+  // showItem(val: number){
+  //   let div = document.createElement('div');
+  //   div.innerText = 'Item' + ' ' + val;
+  //   div.className = 'data-list';
+  //   document.getElementById('container').appendChild(div);
+  // }
   //end #69-72
 }
