@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild, ViewEncapsulation, AfterViewInit } from '@angular/core';
 import { SubscribeService } from '../Services/subscribe.service';
 import { Observable, from, fromEvent, of } from 'rxjs';
-import { map} from 'rxjs/operators';
+import { filter, map} from 'rxjs/operators';
 
 @Component({
   selector: 'demo-test',
@@ -103,12 +103,17 @@ export class DemoTestComponent {
 
   //from operator
   //myObservable = from(this.promiseData);
-  //myObservable - 2, 4, 6, 8, 10
-  //result - 10, 20, 30, 40, 50
-  myObservable = from([2, 4, 6, 8, 10]);
+  //myObservable - 2, 4, 6, 8, 10, 12
+  //result - 10, 20, 30, 40, 50, 60
+  myObservable = from([2, 4, 6, 8, 10, 12]);
 
-  trnasformedObs = this.myObservable.pipe(map((val) => {
+  transformedObs = this.myObservable.pipe(map((val) => {
     return val * 5;
+  }));
+
+  //result - 20, 40, 60
+  filteredObs = this.transformedObs.pipe(filter((val, i) => {
+    return val % 4 === 0;
   }));
 
   GetAsyncData(){
@@ -128,7 +133,7 @@ export class DemoTestComponent {
     // });
 
     //Latest format
-    this.trnasformedObs.subscribe({
+    this.filteredObs.subscribe({
       next: (val: any) => {
         this.data.push(val);
       },
