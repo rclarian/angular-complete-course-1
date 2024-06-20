@@ -39,6 +39,8 @@ import { UserList1Component } from './demo-test/header1/admin1/user-list1/user-l
 import { UserService } from './Services/user.service';
 import { LoggerService } from './Services/logger.service';
 import { UserDetail1Component } from './demo-test/header1/admin1/user-detail1/user-detail1.component';
+import { NewTaskComponent } from './demo-test/new-task/new-task.component';
+import { ShowTaskComponent } from './demo-test/show-task/show-task.component';
 
 export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE');
 
@@ -76,7 +78,9 @@ export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE');
     Hero1Component,
     Sidebar1Component,
     UserList1Component,
-    UserDetail1Component
+    UserDetail1Component,
+    NewTaskComponent,
+    ShowTaskComponent
   ],
   imports: [
     BrowserModule,
