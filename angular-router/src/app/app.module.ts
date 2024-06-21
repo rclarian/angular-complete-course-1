@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,14 @@ import { PopularComponent } from './home/popular/popular.component';
 import { ServicesComponent } from './home/services/services.component';
 import { TestimonyComponent } from './home/testimony/testimony.component';
 import { CourseDetailComponent } from './courses/course-detail/course-detail.component';
+
+//Define Route
+const routes: Routes = [
+  {path: 'Home', component: HomeComponent},
+  {path: 'About', component: AboutComponent},
+  {path: 'Contact', component: ContactComponent},
+  {path: 'Courses', component: CoursesComponent}
+]
 
 @NgModule({
   declarations: [
@@ -40,7 +49,8 @@ import { CourseDetailComponent } from './courses/course-detail/course-detail.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     provideClientHydration()
