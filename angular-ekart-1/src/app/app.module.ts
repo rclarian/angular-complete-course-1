@@ -42,6 +42,7 @@ import { UserDetail1Component } from './demo-test/header1/admin1/user-detail1/us
 import { NewTaskComponent } from './demo-test/new-task/new-task.component';
 import { ShowTaskComponent } from './demo-test/show-task/show-task.component';
 import { Subject1Component } from './demo-test/subject1/subject1.component';
+import { Unsubscribe1Component } from './demo-test/unsubscribe1/unsubscribe1.component';
 
 export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE');
 
@@ -82,7 +83,8 @@ export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE');
     UserDetail1Component,
     NewTaskComponent,
     ShowTaskComponent,
-    Subject1Component
+    Subject1Component,
+    Unsubscribe1Component
   ],
   imports: [
     BrowserModule,
