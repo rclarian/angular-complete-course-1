@@ -11,13 +11,17 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(){
       this.activeRoute.fragment.subscribe((data) => {
-          //console.log(data);
-          this.JumpToSection(data);
+          //console.log('Data checking -' + data);
+          if(data != null){
+            this.JumpToSection(data);
+          }
       });
   }
 
-  JumpToSection(section){
-      document.getElementById(section)?.scrollIntoView({behavior: 'smooth'});
+  JumpToSection(section: any){
+    //document.getElementById(section).scrollIntoView({behavior: 'smooth'});
+    let sec = document.getElementById(section);
+    sec.scrollIntoView({behavior: 'smooth'});
   }
 
 }
