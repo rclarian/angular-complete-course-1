@@ -29,6 +29,7 @@ const routes: Routes = [
   {path: 'Contact', component: ContactComponent},
   {path: 'Courses', component: CoursesComponent},
   {path: 'Login', component: LoginComponent},
+  {path: 'Courses/Course/:id', component: CourseDetailComponent},
   {path: '**', component: NotFoundComponent}
 ]
 
