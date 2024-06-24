@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,23 +18,7 @@ import { PopularComponent } from './home/popular/popular.component';
 import { ServicesComponent } from './home/services/services.component';
 import { TestimonyComponent } from './home/testimony/testimony.component';
 import { CourseDetailComponent } from './courses/course-detail/course-detail.component';
-
-//Define Route
-const routes: Routes = [
-  {path: '', component: HomeComponent},
-  //{path: '', redirectTo: 'Home', pathMatch: 'full'},
-  {path: 'Home', component: HomeComponent},
-  {path: 'About', component: AboutComponent},
-  {path: 'Contact', component: ContactComponent},
-  {path: 'Courses', component: CoursesComponent},
-  //{path: 'Courses/Course/:id', component: CourseDetailComponent},
-  {path: 'Courses', children: [
-    {path: 'Course/:id', component: CourseDetailComponent},
-    {path: 'Popular', component: PopularComponent}
-  ]},
-  {path: 'Login', component: LoginComponent},
-  {path: '**', component: NotFoundComponent}
-]
+import { RoutingModule } from './routing.module';
 
 @NgModule({
   declarations: [
@@ -59,8 +42,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
-    //AboutComponent
+    RoutingModule //added the routing module
   ],
   providers: [
     provideClientHydration()
