@@ -23,6 +23,7 @@ import { CourseDetailComponent } from './courses/course-detail/course-detail.com
 //Define Route
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  //{path: '', redirectTo: 'Home', pathMatch: 'full'},
   {path: 'Home', component: HomeComponent},
   {path: 'About', component: AboutComponent},
   {path: 'Contact', component: ContactComponent},
@@ -52,6 +53,7 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(routes)
+    //AboutComponent
   ],
   providers: [
     provideClientHydration()
