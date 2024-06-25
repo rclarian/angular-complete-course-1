@@ -25,7 +25,7 @@ const routes: Routes = [
     {path: 'Courses', canActivateChild: [CanActivateChild], children: [
       {path: 'Course/:id', component: CourseDetailComponent},
       {path: 'Popular', component: PopularComponent},
-      {path: 'Checkout', component: CheckoutComponent}
+      {path: 'Checkout', component: CheckoutComponent} //data for static
     ]},
     {path: 'Login', component: LoginComponent},
     {path: '**', component: NotFoundComponent}
@@ -36,7 +36,8 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes, {enableTracing: true})
+    RouterModule.forRoot(routes)
+    //RouterModule.forRoot(routes, {enableTracing: true})
   ],
   exports: [RouterModule]
 })
