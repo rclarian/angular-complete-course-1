@@ -39,9 +39,10 @@ export class CoursesComponent implements OnInit {
       this.searchString = data.get('search');
 
       if(this.searchString === undefined || this.searchString === '' || this.searchString === null){
-        this.coursesService.getAllcourses().subscribe((data) => {
-          this.AllCourses = data;
-        }); 
+        // this.coursesService.getAllcourses().subscribe((data) => {
+        //   this.AllCourses = data;
+        // }); 
+        this.AllCourses = this.activeRoute.snapshot.data['courses'];
       }else{
         this.AllCourses = this.coursesService.courses
           .filter(x => x.title.toLowerCase()
