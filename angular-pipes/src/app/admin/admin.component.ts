@@ -16,6 +16,8 @@ export class AdminComponent {
 
   students: Student[];
   totalMarks: number;
+
+  filterText: string = 'All';
   
   //PROPERTIES FOR INSERTING
   @ViewChild('name') Name: ElementRef;
