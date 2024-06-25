@@ -12,6 +12,7 @@ import { PopularComponent } from './home/popular/popular.component';
 import { CourseDetailComponent } from './courses/course-detail/course-detail.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AuthguardService } from './Services/authguard.service';
+import { CanActivate } from './auth.guard';
 
 
 //Define Route
@@ -24,7 +25,7 @@ const routes: Routes = [
     {path: 'Courses', children: [
       {path: 'Course/:id', component: CourseDetailComponent},
       {path: 'Popular', component: PopularComponent},
-      {path: 'Checkout', component: CheckoutComponent, canActivate: [AuthguardService]}
+      {path: 'Checkout', component: CheckoutComponent, canActivate: [CanActivate]}
     ]},
     {path: 'Login', component: LoginComponent},
     {path: '**', component: NotFoundComponent}
