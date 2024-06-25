@@ -12,7 +12,7 @@ import { PopularComponent } from './home/popular/popular.component';
 import { CourseDetailComponent } from './courses/course-detail/course-detail.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AuthguardService } from './Services/authguard.service';
-import { CanActivate } from './auth.guard';
+import { CanActivate, CanActivateChild } from './auth.guard';
 
 
 //Define Route
@@ -22,7 +22,7 @@ const routes: Routes = [
     {path: 'About', component: AboutComponent},
     {path: 'Contact', component: ContactComponent},
     {path: 'Courses', component: CoursesComponent},
-    {path: 'Courses', canActivateChild: [AuthguardService], children: [
+    {path: 'Courses', canActivateChild: [CanActivateChild], children: [
       {path: 'Course/:id', component: CourseDetailComponent},
       {path: 'Popular', component: PopularComponent},
       {path: 'Checkout', component: CheckoutComponent}
