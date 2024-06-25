@@ -22,10 +22,10 @@ const routes: Routes = [
     {path: 'About', component: AboutComponent},
     {path: 'Contact', component: ContactComponent},
     {path: 'Courses', component: CoursesComponent},
-    {path: 'Courses', children: [
+    {path: 'Courses', canActivateChild: [AuthguardService], children: [
       {path: 'Course/:id', component: CourseDetailComponent},
       {path: 'Popular', component: PopularComponent},
-      {path: 'Checkout', component: CheckoutComponent, canActivate: [CanActivate]}
+      {path: 'Checkout', component: CheckoutComponent}
     ]},
     {path: 'Login', component: LoginComponent},
     {path: '**', component: NotFoundComponent}
