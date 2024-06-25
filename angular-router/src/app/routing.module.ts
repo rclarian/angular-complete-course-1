@@ -20,7 +20,7 @@ const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'Home', component: HomeComponent},
     {path: 'About', component: AboutComponent},
-    {path: 'Contact', component: ContactComponent, canDeactivate: [AuthguardService]},
+    {path: 'Contact', component: ContactComponent, canDeactivate: [(comp: ContactComponent) => {return comp.canExit()}]},
     {path: 'Courses', component: CoursesComponent},
     {path: 'Courses', canActivateChild: [CanActivateChild], children: [
       {path: 'Course/:id', component: CourseDetailComponent},
