@@ -19,6 +19,7 @@ import { ServicesComponent } from './home/services/services.component';
 import { TestimonyComponent } from './home/testimony/testimony.component';
 import { CourseDetailComponent } from './courses/course-detail/course-detail.component';
 import { RoutingModule } from './routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { RoutingModule } from './routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RoutingModule //added the routing module
+    RoutingModule, //added the routing module
+    FormsModule
   ],
   providers: [
     provideClientHydration()
