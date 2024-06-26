@@ -24,5 +24,6 @@ import { ViewContainer } from './viewContainer.directive';
     //provideClientHydration()
   ],
   bootstrap: [AppComponent]
+  //entryComponents: [ConfirmDeleteComponent], //add this for the lower version of Angular 8 and below
 })
 export class AppModule { }
