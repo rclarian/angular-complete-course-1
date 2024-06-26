@@ -22,7 +22,7 @@ import { FilterPipe } from './Pipes/filter.pipe';
     FormsModule
   ],
   providers: [
-    provideClientHydration()
+    //provideClientHydration() //commented this and its working will
   ],
   bootstrap: [AppComponent]
 })

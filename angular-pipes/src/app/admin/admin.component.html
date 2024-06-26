@@ -6,12 +6,15 @@
             <h2>Student Management</h2>
         </div>
         <div class="admin-header-filter">
-            <select name="gender" class="filter-select" [(ngModel)]="filterText">
+            <select name="gender" class="filter-select" [value]="filterText" (change)="OnFilterValueChanged($event)">
                 <option value="All">All</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
-        </div>    
+        </div>  
+        <div style="margin: 10px 0px;">
+            Total Students: {{ totalStudents | async }}
+        </div> 
     </div>
     <!--HEADER ENDS-->
 
@@ -81,7 +84,7 @@
             <!--INSERT NEW STUDENT ROW ENDS-->
 
             <!--DISPLAY ALL STUDENTS FROM STUDENTS ARRAY-->
-            <tr *ngFor="let std of students | filter: filterText">
+            <tr *ngFor="let std of students">
                 <td>{{ std.id }}</td>
 
                 <td *ngIf="!isEditing || std.id !== stdIdToEdit">{{ std.name }}</td>
@@ -102,7 +105,7 @@
                     <input type="date" [value]="std.dob" #editDob>
                 </td>
 
-                <td *ngIf="!isEditing || std.id !== stdIdToEdit">{{ std.course | uppercase }}</td>
+                <td *ngIf="!isEditing || std.id !== stdIdToEdit">{{ std.course | uppercase}}</td>
                 <td *ngIf="isEditing && std.id === stdIdToEdit">
                     <select name="course" class="select-gender-course" [value]="std.course" #editCourse>
                         <option value="MBA">MBA</option>
@@ -118,7 +121,7 @@
 
                 <td>{{ std.marks | percentage: totalMarks: 2 }}</td>
 
-                <td *ngIf="!isEditing || std.id !== stdIdToEdit">{{ std.fee | currency: 'PHP': true: '2.2-2' }}</td>
+                <td *ngIf="!isEditing || std.id !== stdIdToEdit">{{ std.fee | currency: 'INR': true: '2.2-2'}}</td>
                 <td *ngIf="isEditing && std.id === stdIdToEdit">
                     <input type="number" min="0" [value]="std.fee" #editFee>
                 </td>
@@ -149,7 +152,7 @@
 
     <!--PAGE FOOTER-->
     <div class="admin-footer">
-        <p>All rights reserved by procademy. Copyright 2023.</p>         
+        <p>All rights reserved by procademy. &copy; Copyright 2023.</p>         
     </div>
     <!--PAGE FOOTER ENDS-->
 </div>

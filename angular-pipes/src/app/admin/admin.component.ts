@@ -7,7 +7,7 @@ import { Student } from '../Models/Student';
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit {
   studentService: StudentService = inject(StudentService);
 
   isEditing: boolean = false;
@@ -16,8 +16,13 @@ export class AdminComponent {
 
   students: Student[];
   totalMarks: number;
-
   filterText: string = 'All';
+
+  totalStudents = new Promise((resolve, rejection) => {
+    setTimeout(() => {
+      resolve(this.students.length);
+    }, 2000);
+  });
   
   //PROPERTIES FOR INSERTING
   @ViewChild('name') Name: ElementRef;
@@ -36,8 +41,14 @@ export class AdminComponent {
   @ViewChild('editFee') editFee: ElementRef;
 
   ngOnInit(){
-    this.students = this.studentService.students;
+    this.students = this.studentService.filterStudentByGender(this.filterText);
     this.totalMarks = this.studentService.totalMarks;
+  }
+
+  OnFilterValueChanged(event: any){
+    let selectedValue = event.target.value;
+    this.filterText = selectedValue;
+    this.students = this.studentService.filterStudentByGender(selectedValue);
   }
 
   OnInsertClicked(){
@@ -57,6 +68,7 @@ export class AdminComponent {
     );
     //this.students = this.studentService.students;
     this.isInserting = false;
+    this.students = this.studentService.filterStudentByGender(this.filterText);
   }
 
   OnEditClicked(stdId: number){
@@ -76,5 +88,6 @@ export class AdminComponent {
       student.fee = this.editFee.nativeElement.value;
 
       this.isEditing = false;
+      this.students = this.studentService.filterStudentByGender(this.filterText);
   }
 }

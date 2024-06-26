@@ -26,6 +26,7 @@ export class StudentService {
         // this.students = studentCopy;
     }
 
+    //Filter logic in service instead of Pipe
     filterStudentByGender(filterBy: string){
       if(filterBy.toLowerCase() === 'all' || filterBy === '' || this.students.length === 0){
           return this.students;
