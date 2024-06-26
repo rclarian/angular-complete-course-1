@@ -18,6 +18,7 @@ export class AdminComponent implements OnInit {
   totalMarks: number;
   filterText: string = 'All';
 
+  //async
   totalStudents = new Promise((resolve, rejection) => {
     setTimeout(() => {
       resolve(this.students.length);
