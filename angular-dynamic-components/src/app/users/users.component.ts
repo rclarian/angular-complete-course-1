@@ -18,6 +18,8 @@ export class UsersComponent implements OnInit{
   userToDelete: User;
   @ViewChild(ViewContainer, {static: false}) container: ViewContainer;
 
+  onConfirmationObs;
+
   ngOnInit() {
     this.users = this.userService.users;
   }
@@ -46,7 +48,20 @@ export class UsersComponent implements OnInit{
     containerViewRef.clear();
     
     //Rendering the component in the DOM
-    containerViewRef.createComponent(confirmDeleteComponentFactory);
+    const componentRef = containerViewRef.createComponent(confirmDeleteComponentFactory);
+    componentRef.instance.usertoDelete = user;
+
+    this.onConfirmationObs = componentRef.instance.OnConfirmation.subscribe((data) => {
+      this.onConfirmationObs.unsubscribe();
+      containerViewRef.clear();
+
+      if(data){
+        //Delete the user
+        let index = this.userService.users.indexOf(this.userToDelete);
+        this.userService.users.splice(index, 1);
+      }
+
+    });
   }
 
 
