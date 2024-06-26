@@ -33,13 +33,19 @@
         <input type="number" placeholder="Phone Number" name="phone" ngModel/>
       </div>
       <div class="input-box">
-        <input type="date" placeholder="Date of Birth" name="dob" ngModel/>
+        <input type="date" placeholder="Date of Birth" name="dob" [(ngModel)]="userDob" required #tempdob="ngModel"/>
+        <div>
+          <small *ngIf="tempdob.invalid && tempdob.touched">*Date of birth is Required Field</small>
+        </div>
       </div>
     </div>
 
     <div class="input-box">
-      <input type="text" placeholder="User Name"/>
-      <button class="btn-gen-username">
+      <input type="text" placeholder="User Name" name="username" ngModel required #uname="ngModel"/>
+      <div>
+        <small *ngIf="uname.invalid && uname.touched">*User Name is Required Field</small>
+      </div>
+      <button class="btn-gen-username" [disabled]="fname.invalid || lname.invalid || tempdob.invalid" (click)="GenerateUsername()">
         Create a Username
       </button>
     </div>
