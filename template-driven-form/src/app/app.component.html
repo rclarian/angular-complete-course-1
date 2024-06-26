@@ -4,16 +4,28 @@
   <form class="form" (ngSubmit)="OnFormSubmitted()" #registrationForm="ngForm">
     <div class="column">
       <div class="input-box">
-        <input type="text" placeholder="First Name" name="firstname" ngModel required/>
+        <input type="text" placeholder="First Name" name="firstname" [(ngModel)]="firstName" required #fname="ngModel"/>
+        <div>
+          <small *ngIf="fname.invalid && fname.touched">*First name is Required Field</small>
+          <span *ngIf="firstName">You entered: {{ firstName }}</span>
+        </div>
       </div> 
 
       <div class="input-box">
-        <input type="text" placeholder="Last Name" name="lastname" ngModel required/>
+        <input type="text" placeholder="Last Name" name="lastname" [(ngModel)]="lastName" required #lname="ngModel"/>
+        <div>
+          <small *ngIf="lname.invalid && lname.touched">*Last Name is Required Field</small>
+          <span *ngIf="lastName">You entered: {{ lastName }}</span>
+        </div>
       </div>
     </div>    
 
     <div class="input-box">
-      <input type="text" placeholder="Email" name="email" ngModel required email/>
+      <input type="text" placeholder="Email" name="email" [(ngModel)]="userEmail" required email #email="ngModel"/>
+      <div>
+        <small *ngIf="email.invalid && email.touched">*Email is Required Field</small>
+        <span *ngIf="userEmail">You entered: {{ userEmail }}</span>
+      </div>
     </div>
 
     <div class="column">
