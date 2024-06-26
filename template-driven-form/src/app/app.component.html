@@ -4,16 +4,16 @@
   <form class="form" (ngSubmit)="OnFormSubmitted()" #registrationForm="ngForm">
     <div class="column">
       <div class="input-box">
-        <input type="text" placeholder="First Name" name="firstname" ngModel/>
+        <input type="text" placeholder="First Name" name="firstname" ngModel required/>
       </div> 
 
       <div class="input-box">
-        <input type="text" placeholder="Last Name" name="lastname" ngModel/>
+        <input type="text" placeholder="Last Name" name="lastname" ngModel required/>
       </div>
     </div>    
 
     <div class="input-box">
-      <input type="text" placeholder="Email" name="email" ngModel/>
+      <input type="text" placeholder="Email" name="email" ngModel required email/>
     </div>
 
     <div class="column">
@@ -26,7 +26,7 @@
     </div>
 
     <div class="input-box">
-      <input type="text" placeholder="User Name"  name="username" ngModel/>
+      <input type="text" placeholder="User Name"/>
       <button class="btn-gen-username">
         Create a Username
       </button>
@@ -63,6 +63,6 @@
         <input type="number" placeholder="Postal code" name="postal" ngModel/>
       </div>
     </div>
-    <input type="submit" value="Submit" class="submit-btn"> 
+    <input type="submit" value="Submit" class="submit-btn" [disabled]="!registrationForm.valid"> 
   </form>
 </section>
