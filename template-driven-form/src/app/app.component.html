@@ -86,3 +86,28 @@
     <!-- <input type="submit" value="Submit" class="submit-btn" [disabled]="!registrationForm.valid">  -->
   </form>
 </section>
+
+<section class="user-detail-container">
+  <div class="user-details-container">
+    <div class="user-avatar">
+      <p>{{firstName.slice(0, 1).toUpperCase()}}{{lastName.slice(0,1).toUpperCase()}}</p>
+    </div>
+    <div class="user-details">
+      <div class="user-name">
+        <h2>{{ firstName }} {{ lastName }}</h2>
+      </div>
+      <p><b>Email:</b> {{ userEmail}}</p>
+      <p><b>Username:</b> {{ userName }} </p>
+      <p><b>Date of birth:</b> {{ userDob }}</p>
+      <div class="user-name">
+        <h3>Address</h3>
+      </div>
+      <span>{{ country }}</span>.
+      <span>{{ street1 }}</span>.
+      <span>{{street2 }}</span>.
+      <span>{{ city }}</span>.
+      <span>{{ region }}</span>.
+      <span> {{ postal }}</span>
+    </div>
+  </div>
+</section>

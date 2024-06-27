@@ -13,6 +13,14 @@ export class AppComponent {
   lastName: string = '';
   userDob: string = '';
   userEmail: string = '';
+  userName: string = '';
+  gender: string = '';
+  country: string = '';
+  street1: string = '';
+  street2: string = '';
+  city: string = '';
+  region: string = '';
+  postal: string = '';
 
   @ViewChild('registrationForm') form: NgForm;
 
@@ -27,11 +35,27 @@ export class AppComponent {
 
   OnFormSubmitted(){
     console.log(this.form);
-    console.log(this.form.controls['firstname'].value);
-    console.log(this.form.value.lastname);
-    console.log(this.form.value.email);
-    console.log(this.form.value.address.country);
-    console.log(this.form.value.address.city);
+    // console.log(this.form.controls['firstname'].value);
+    // console.log(this.form.value.lastname);
+    // console.log(this.form.value.email);
+    // console.log(this.form.value.address.country);
+    // console.log(this.form.value.address.city);
+
+    this.firstName = this.form.value.firstName;
+    this.lastName = this.form.value.lastName;
+    this.userDob = this.form.value.dob;
+    this.userEmail = this.form.value.email;
+    this.userName = this.form.value.username;
+    this.gender = this.form.value.gender;
+    this.country = this.form.value.address.country;
+    this.street1 = this.form.value.address.street1;
+    this.street2 = this.form.value.address.street2;
+    this.city = this.form.value.address.city;
+    this.region = this.form.value.address.region;
+    this.postal = this.form.value.address.postal;
+    // this.fNameSlice = this.firstName.slice(0, 1);
+    // this.lNameSlice = this.lastName.slice(0, 1);
+
 
     this.form.reset();
 
