@@ -14,7 +14,7 @@ export class CustomValidators{
 }
 
 function userNameAllowed(username: string){
-    const takenUserNames = ['johnsmith', 'manojjha', 'sarahking'];
+    const takenUserNames = ['johnsmith', 'kulit', 'ryan'];
 
     return new Promise((resolve, reject) => {
         setTimeout(() => {
