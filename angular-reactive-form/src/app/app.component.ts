@@ -28,9 +28,6 @@ export class AppComponent implements OnInit{
         postal: new FormControl(null, Validators.required)
       }),
       skills: new FormArray([
-        new FormControl(null, Validators.required),
-        new FormControl(null, Validators.required),
-        new FormControl(null, Validators.required),
         new FormControl(null, Validators.required)
       ])
     })
@@ -41,8 +38,14 @@ export class AppComponent implements OnInit{
     
   }
 
-  DeleteSkill(value){
+  AddSkills(){
+    (<FormArray>this.reactiveForm.get('skills'))
+    .push(new FormControl(null, Validators.required))
+  }
 
+  DeleteSkill(index: number){
+    const frmArray = <FormArray>this.reactiveForm.get('skills');
+    frmArray.removeAt(index);
   }
 
 
