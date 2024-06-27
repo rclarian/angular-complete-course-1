@@ -45,7 +45,7 @@
       <div>
         <small *ngIf="uname.invalid && uname.touched">*User Name is Required Field</small>
       </div>
-      <button class="btn-gen-username" [disabled]="fname.invalid || lname.invalid || tempdob.invalid" (click)="GenerateUsername()">
+      <button type="button" class="btn-gen-username" [disabled]="fname.invalid || lname.invalid || tempdob.invalid" (click)="GenerateUsername()">
         Create a Username
       </button>
     </div>

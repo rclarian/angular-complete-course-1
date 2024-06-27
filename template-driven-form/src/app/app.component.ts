@@ -32,6 +32,15 @@ export class AppComponent {
     console.log(this.form.value.email);
     console.log(this.form.value.address.country);
     console.log(this.form.value.address.city);
+
+    this.form.reset();
+
+    this.form.form.patchValue({
+      gender: 'male',
+      address: {
+        country: 'Philippines'
+      }
+    })
   }
 
   GenerateUsername(){
@@ -77,7 +86,10 @@ export class AppComponent {
     // });
 
     this.form.form.patchValue({
-      username: username
+      username: username,
+      // address:{
+      //   country: 'America'
+      // }
     });
 
   }
