@@ -21,6 +21,7 @@ export class AppComponent {
   city: string = '';
   region: string = '';
   postal: string = '';
+  IsAgreed: boolean = false;
 
   @ViewChild('registrationForm') form: NgForm;
 
@@ -53,9 +54,7 @@ export class AppComponent {
     this.city = this.form.value.address.city;
     this.region = this.form.value.address.region;
     this.postal = this.form.value.address.postal;
-    // this.fNameSlice = this.firstName.slice(0, 1);
-    // this.lNameSlice = this.lastName.slice(0, 1);
-
+    this.IsAgreed = this.form.value.IsAgreed;
 
     this.form.reset();
 
