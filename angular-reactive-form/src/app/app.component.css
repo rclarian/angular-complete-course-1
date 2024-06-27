@@ -118,6 +118,7 @@
     box-shadow: rgba(187, 185, 185, 0.35) 0px 5px 15px;
   }
   
+  /* ng-touched added here */
   input.ng-invalid.ng-touched{
     border: red 2px solid;
   }
