@@ -42,7 +42,9 @@
         <small *ngIf="reactiveForm.get('username').errors?.['checkUserName'] && reactiveForm.get('username').touched">
           *User name already in use.
         </small>
-        <button class="btn-gen-username" type="button">
+        <button class="btn-gen-username" type="button" (click)="GenerateUsername()" [disabled]="!(reactiveForm.get('firstname').value 
+          && reactiveForm.get('lastname').value 
+          && reactiveForm.get('dob').value)">
           Create a Username
         </button>
       </div>
