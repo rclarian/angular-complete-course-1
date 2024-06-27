@@ -29,6 +29,12 @@ export class AppComponent implements OnInit{
 
   OnFormSubmitted(){
     console.log(this.reactiveForm);
+    console.log(this.reactiveForm.controls['firstname'].invalid);
+    //if(this.reactiveForm.value)
+
+    //this.reactiveForm.controls['firstname'].invalid;
+
+    
   }
 
 
