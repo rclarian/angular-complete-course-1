@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Task } from '../../Model/Task';
 
 @Component({
   selector: 'app-create-task',
@@ -10,16 +11,18 @@ export class CreateTaskComponent {
   @Output()
   CloseForm: EventEmitter<boolean> = new EventEmitter<boolean>();
 
+  //1. pass data - EventEmitter
   @Output()
-  EmitTaskData: EventEmitter<any> = new EventEmitter<any>();
+  EmitTaskData: EventEmitter<Task> = new EventEmitter<Task>();
 
   OnCloseForm(){
     this.CloseForm.emit(false);
   }
 
+  //2. pass data - emit on OnFormSubmitted()
   OnFormSubmitted(form: NgForm){
     this.EmitTaskData.emit(form.value);
-    console.log(form.value);
+    this.CloseForm.emit(false);
   }
 
 

@@ -1,7 +1,8 @@
 <app-create-task 
         *ngIf="showCreateTaskForm" 
         (CloseForm)="CloseCreateTaskForm()"
-></app-create-task>
+        (EmitTaskData)="CreateTask($event)" 
+></app-create-task> <!-- //3. pass data - pass data here(EmitTaskData)="CreateTask($event) -->
 
 <div class="dashboard-container">
     <div style="display: flex;">
