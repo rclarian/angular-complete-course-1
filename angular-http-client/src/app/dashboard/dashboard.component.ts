@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit{
     this.http.post<{name: string}>('https://angularhttpclient-9f74d-default-rtdb.firebaseio.com/tasks.json', data, {headers: header})
     .subscribe((response) => {
       console.log(response);
-      //this.fetchAllTasks();
+      this.fetchAllTasks();
     });
   }
 
@@ -54,6 +54,20 @@ export class DashboardComponent implements OnInit{
 
   FetchAllTaskClicked(){
     this.fetchAllTasks();
+  }
+
+  DeleteAllTask(){
+    this.http.delete('https://angularhttpclient-9f74d-default-rtdb.firebaseio.com/tasks.json')
+    .subscribe((res) => {
+      this.fetchAllTasks();
+    });
+  }
+
+  DeleteTask(id: string | undefined){
+    this.http.delete('https://angularhttpclient-9f74d-default-rtdb.firebaseio.com/tasks/'+ id +'.json')
+    .subscribe((res) => {
+      this.fetchAllTasks();
+    });
   }
 
   ngOnInit(){
