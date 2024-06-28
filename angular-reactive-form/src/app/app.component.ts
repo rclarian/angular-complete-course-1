@@ -10,6 +10,7 @@ import { CustomValidators } from './Validators/noSpaceAllowed.validator'
 export class AppComponent implements OnInit{
   title = 'angular-reactive-form';
   formStatus: string = '';
+  formdata: any = {};
 
   reactiveForm: FormGroup;
 
@@ -57,7 +58,27 @@ export class AppComponent implements OnInit{
   }
 
   OnFormSubmitted(){
-    console.log(this.reactiveForm);
+    console.log(this.reactiveForm); 
+
+    this.formdata = this.reactiveForm.value;
+
+    this.reactiveForm.reset({
+      firstname: null,
+      lastname: null,
+      email: null,
+      username: null,
+      dob: null,
+      gender: 'male',
+      address:{
+        street: null,
+        country: 'Philippines',
+        city: null,
+        region: null,
+        postal: null
+      },
+      skills: [null],
+      experience: []
+    });
     
   }
 
