@@ -12,6 +12,7 @@ import { map } from 'rxjs';
 export class DashboardComponent implements OnInit{
   showCreateTaskForm: boolean = false;
   http: HttpClient = inject(HttpClient);
+  allTasks: Task[] = [];
 
   OpenCreateTaskForm(){
     this.showCreateTaskForm = true;
@@ -27,6 +28,7 @@ export class DashboardComponent implements OnInit{
     this.http.post<{name: string}>('https://angularhttpclient-9f74d-default-rtdb.firebaseio.com/tasks.json', data, {headers: header})
     .subscribe((response) => {
       console.log(response);
+      //this.fetchAllTasks();
     });
   }
 
@@ -45,8 +47,13 @@ export class DashboardComponent implements OnInit{
       return tasks;
 
     })).subscribe((tasks) => {
-      console.log(tasks);
+      //console.log(tasks);
+      this.allTasks = tasks;
     })
+  }
+
+  FetchAllTaskClicked(){
+    this.fetchAllTasks();
   }
 
   ngOnInit(){
