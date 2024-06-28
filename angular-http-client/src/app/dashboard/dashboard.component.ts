@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit{
   http: HttpClient = inject(HttpClient);
   allTasks: Task[] = [];
   taskService: TaskService = inject(TaskService);
+  currentTaskId: string = '';
 
   editMode: boolean = false;
   selectedTask: Task;
@@ -35,9 +36,22 @@ export class DashboardComponent implements OnInit{
     this.showCreateTaskForm = false;
   }
 
+  OnEditTaskClicked(id: string | undefined){
+    this.currentTaskId = id;
+    //Open edit task form
+    this.showCreateTaskForm = true;
+    this.editMode = true;
+
+    this.selectedTask = this.allTasks.find((task) => {return task.id === id});
+  }
+
   //4. pass data - get the data here CreateTask(data: Task)
-  CreateTask(data: Task){
-    this.taskService.CreateTask(data);
+  CreateOrUpdateTask(data: Task){
+    if(!this.editMode){
+      this.taskService.CreateTask(data);
+    }else{
+      this.taskService.UpdateTask(this.currentTaskId, data);
+    }
   }
 
   private fetchAllTasks(){
@@ -56,14 +70,6 @@ export class DashboardComponent implements OnInit{
 
   DeleteTask(id: string | undefined){
     this.taskService.DeleteTask(id);
-  }
-
-  OnEditTaskClicked(id: string | undefined){
-    //Open edit task form
-    this.showCreateTaskForm = true;
-    this.editMode = true;
-
-    this.selectedTask = this.allTasks.find((task) => {return task.id === id});
   }
 
   ngOnInit(){
