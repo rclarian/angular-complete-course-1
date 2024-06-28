@@ -71,4 +71,7 @@ Child Component to Parent Component to Child component
 1. Child to Parent > Custom event binding & @Output() Decorator
 2. Parent to other Child > Custom property binding & @Input() Decorator
 ---------------------------------------------------
-
+Firebase
+https://console.firebase.google.com/project/angularhttpclient-9f74d/database/angularhttpclient-9f74d-default-rtdb/data
+Database: https://angularhttpclient-9f74d-default-rtdb.firebaseio.com/
+---------------------------------------------------
