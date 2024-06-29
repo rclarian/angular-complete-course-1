@@ -62,14 +62,10 @@ export class DashboardComponent implements OnInit{
     this.taskService.GetAllTasks().subscribe({next: (tasks) => {
       this.allTasks = tasks;
       this.isLoading = false;
-      
+
     }, error: (error) => {
       this.setErrorMessage(error);
       this.isLoading = false;
-
-      setTimeout(() => {
-        this.errorMessage = null;
-      }, 3000);
     }})
   }
 
@@ -77,6 +73,10 @@ export class DashboardComponent implements OnInit{
     if(err.error.error === 'Permission denied'){
       this.errorMessage = 'You do not have permission to perform to this action';
     }
+    
+    setTimeout(() => {
+      this.errorMessage = null;
+    }, 3000);
   }
 
   FetchAllTaskClicked(){
