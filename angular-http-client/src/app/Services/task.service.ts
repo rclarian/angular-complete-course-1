@@ -11,28 +11,30 @@ import { map } from 'rxjs';
 export class TaskService {
   http: HttpClient = inject(HttpClient);
   allTasks: Task[] = [];
+  dataBaseCon: string = 'https://angularhttpclient-9f74d-default-rtdb.firebaseio.com';
+  table: string = 'tasks';
 
   CreateTask(task: Task){
     const header = new HttpHeaders({'may-header': 'hello-world'});
-    this.http.post<{name: string}>('https://angularhttpclient-9f74d-default-rtdb.firebaseio.com/tasks.json', task, {headers: header})
+    this.http.post<{name: string}>(`${this.dataBaseCon}/${this.table}.json`, task, {headers: header})
     .subscribe((response) => {
     });
   }
 
   DeleteTask(id: string | undefined){
-    this.http.delete('https://angularhttpclient-9f74d-default-rtdb.firebaseio.com/tasks/'+ id +'.json')
+    this.http.delete(`${this.dataBaseCon}/${this.table}/${id}.json`)
     .subscribe((res) => {
     });
   }
 
   DeleteAllTask(){
-    this.http.delete('https://angularhttpclient-9f74d-default-rtdb.firebaseio.com/tasks.json')
+    this.http.delete(`${this.dataBaseCon}/${this.table}.json`)
     .subscribe((res) => {
     });
   }
 
   GetAllTasks(){
-    return this.http.get<{[key: string]: Task}>('https://angularhttpclient-9f74d-default-rtdb.firebaseio.com/tasks.json')
+    return this.http.get<{[key: string]: Task}>(`${this.dataBaseCon}/${this.table}.json`)
     .pipe(map((response) => {
       
       //Transform data
@@ -48,7 +50,7 @@ export class TaskService {
   }
 
   UpdateTask(id: string | undefined, data: Task){
-    this.http.put('https://angularhttpclient-9f74d-default-rtdb.firebaseio.com/tasks/'+ id +'.json', data)
+    this.http.put(`${this.dataBaseCon}/${this.table}/${id}.json`, data)
     .subscribe((res) => {
     });
   }
