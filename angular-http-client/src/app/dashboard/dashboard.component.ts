@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 })
 export class DashboardComponent implements OnInit, OnDestroy{
   showCreateTaskForm: boolean = false;
+  showTaskDetails: boolean = false;
   http: HttpClient = inject(HttpClient);
   allTasks: Task[] = [];
   taskService: TaskService = inject(TaskService);
@@ -94,6 +95,14 @@ export class DashboardComponent implements OnInit, OnDestroy{
 
   DeleteTask(id: string | undefined){
     this.taskService.DeleteTask(id);
+  }
+
+  ShowCurrentTaskDetails(id: string | undefined){
+    this.showTaskDetails = true;
+  }
+
+  CloseTaskDetails(){
+    this.showTaskDetails = false;
   }
 
   ngOnInit(){
