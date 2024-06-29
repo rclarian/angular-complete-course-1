@@ -1,22 +1,25 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Task } from '../Model/Task';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { TaskService } from '../Services/task.service';
 import { error } from 'node:console';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent implements OnInit{
+export class DashboardComponent implements OnInit, OnDestroy{
   showCreateTaskForm: boolean = false;
   http: HttpClient = inject(HttpClient);
   allTasks: Task[] = [];
   taskService: TaskService = inject(TaskService);
   currentTaskId: string = '';
   isLoading: boolean = false;
+
   errorMessage: string | null = null;
+  errorSub: Subscription;
 
   editMode: boolean = false;
   selectedTask: Task;
@@ -72,8 +75,10 @@ export class DashboardComponent implements OnInit{
   private setErrorMessage(err: HttpErrorResponse){
     if(err.error.error === 'Permission denied'){
       this.errorMessage = 'You do not have permission to perform to this action';
+    }else{
+      this.errorMessage = err.message;
     }
-    
+
     setTimeout(() => {
       this.errorMessage = null;
     }, 3000);
@@ -93,5 +98,13 @@ export class DashboardComponent implements OnInit{
 
   ngOnInit(){
     this.fetchAllTasks();
+    this.errorSub = this.taskService.errorSubject.subscribe({next: (httpError) => {
+      this.setErrorMessage(httpError);
+    }})
   }
+
+  ngOnDestroy(){
+    this.errorSub.unsubscribe();
+  }
+
 }
