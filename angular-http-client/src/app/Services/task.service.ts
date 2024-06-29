@@ -95,4 +95,16 @@ export class TaskService {
     }});
   }
 
+  getTaskDetails(taskId: string | undefined){
+    return this.http.get(`${this.dataBaseCon}/${this.collectionName}/${taskId}.json`)
+    .pipe(map((response) => {
+      //console.log(response);
+      //Transform data
+      let task = {};
+      task = {...response, id: taskId}
+
+      return task;
+    }))
+  }
+
 }

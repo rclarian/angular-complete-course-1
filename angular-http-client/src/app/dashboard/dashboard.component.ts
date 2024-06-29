@@ -19,6 +19,8 @@ export class DashboardComponent implements OnInit, OnDestroy{
   currentTaskId: string = '';
   isLoading: boolean = false;
 
+  currentTaskDash: Task | null = null;
+
   errorMessage: string | null = null;
   errorSub: Subscription;
 
@@ -99,6 +101,9 @@ export class DashboardComponent implements OnInit, OnDestroy{
 
   ShowCurrentTaskDetails(id: string | undefined){
     this.showTaskDetails = true;
+    this.taskService.getTaskDetails(id).subscribe({next: (data: Task) => {
+      this.currentTaskDash = data;
+    }});
   }
 
   CloseTaskDetails(){

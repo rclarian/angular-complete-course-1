@@ -7,7 +7,8 @@
 ></app-create-task> <!-- //3. pass data - pass data here(EmitTaskData)="CreateTask($event) -->
 <app-task-details 
     *ngIf="showTaskDetails"
-    (CloseDetailView)="CloseTaskDetails()">
+    (CloseDetailView)="CloseTaskDetails()"
+    [currentTaskDetails]="currentTaskDash">
 </app-task-details>
 <div class="dashboard-container">
     <div style="display: flex;">
