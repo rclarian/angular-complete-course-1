@@ -1,8 +1,8 @@
 import { Component, inject, OnInit, Injectable } from '@angular/core';
 import { Task } from '../Model/Task';
-import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpEventType, HttpHeaders, HttpParams } from '@angular/common/http';
 import { response } from 'express';
-import { Subject, catchError, map, throwError } from 'rxjs';
+import { Subject, catchError, map, throwError, tap } from 'rxjs';
 import { LoggingService } from './logging.service';
 
 
@@ -46,8 +46,13 @@ export class TaskService {
   }
 
   DeleteAllTask(){
-    this.http.delete(`${this.dataBaseCon}/${this.collectionName}.json`)
-    .pipe(catchError((err) => {
+    this.http.delete(`${this.dataBaseCon}/${this.collectionName}.json`, {observe: 'events', responseType: 'json'})
+    .pipe(tap((event) => {
+      console.log(event);
+      if(event.type === HttpEventType.Response){
+
+      }
+    }),catchError((err) => {
       //Write the logic to log errors
       const errorObj = {statusCode: err.status, errorMessage: err.message, datetime: new Date()};
       this.loggingService.logError(errorObj);
@@ -69,12 +74,12 @@ export class TaskService {
     httpParams = httpParams.set('item', 10);
 
     return this.http.get<{[key: string]: Task}>(`${this.dataBaseCon}/${this.collectionName}.json`,
-      {headers: headers, params: httpParams}
+      {headers: headers, params: httpParams, observe: 'body'} //observe: 'events', observe: 'response'
     ).pipe(map((response) => {
       
       //Transform data
       let tasks = [];
-
+      console.log(response);
       for(let key in response){
         if(response.hasOwnProperty(key)){
           tasks.push({...response[key], id: key})
