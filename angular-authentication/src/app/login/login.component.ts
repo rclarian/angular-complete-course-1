@@ -10,6 +10,7 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent {
   authService: AuthService = inject(AuthService);
   isLoginMode: boolean = true;
+  isLoading: boolean = false;
 
   onSwitchMode(){
     this.isLoginMode = !this.isLoginMode;
@@ -24,9 +25,16 @@ export class LoginComponent {
       return;
     }else{
       //signup logic
+      this.isLoading = true;
       this.authService.signup(email, password).subscribe({
-        next: (res) => { console.log(res) },
-        error: (err) => { console.log(err) }
+        next: (res) => { 
+          console.log(res) 
+          this.isLoading = false;
+        },
+        error: (err) => { 
+          console.log(err) 
+          this.isLoading = false;
+        }
       });
     }
 
