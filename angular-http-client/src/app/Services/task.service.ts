@@ -48,7 +48,7 @@ export class TaskService {
   DeleteAllTask(){
     this.http.delete(`${this.dataBaseCon}/${this.collectionName}.json`, {observe: 'events', responseType: 'json'})
     .pipe(tap((event) => {
-      console.log(event);
+      //console.log(event);
       if(event.type === HttpEventType.Response){
 
       }
@@ -79,7 +79,7 @@ export class TaskService {
       
       //Transform data
       let tasks = [];
-      console.log(response);
+      //console.log(response);
       for(let key in response){
         if(response.hasOwnProperty(key)){
           tasks.push({...response[key], id: key})
