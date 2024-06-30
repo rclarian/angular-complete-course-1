@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, Injectable } from '@angular/core';
 import { Task } from '../Model/Task';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { response } from 'express';
 import { Subject, catchError, map, throwError } from 'rxjs';
 import { LoggingService } from './logging.service';
@@ -64,8 +64,12 @@ export class TaskService {
     headers = headers.set('content-type', 'application/json') //same as headers.append()
     headers = headers.set('Access-Control-Allow-Origin', '*') //same as headers.append()
 
-    return this.http.get<{[key: string]: Task}>(`${this.dataBaseCon}/${this.collectionName}.json?page=2&item=10`,
-      {headers: headers}
+    let httpParams = new HttpParams();
+    httpParams = httpParams.set('page', 2);
+    httpParams = httpParams.set('item', 10);
+
+    return this.http.get<{[key: string]: Task}>(`${this.dataBaseCon}/${this.collectionName}.json`,
+      {headers: headers, params: httpParams}
     ).pipe(map((response) => {
       
       //Transform data
