@@ -64,7 +64,7 @@ export class TaskService {
     headers = headers.set('content-type', 'application/json') //same as headers.append()
     headers = headers.set('Access-Control-Allow-Origin', '*') //same as headers.append()
 
-    return this.http.get<{[key: string]: Task}>(`${this.dataBaseCon}/${this.collectionName}.json`,
+    return this.http.get<{[key: string]: Task}>(`${this.dataBaseCon}/${this.collectionName}.json?page=2&item=10`,
       {headers: headers}
     ).pipe(map((response) => {
       
