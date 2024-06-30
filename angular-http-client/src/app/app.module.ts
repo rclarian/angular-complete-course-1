@@ -11,6 +11,7 @@ import { TaskDetailsComponent } from './dashboard/task-details/task-details.comp
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorService } from './Services/auth-interceptor.service';
+import { LoggingInterceptorService } from './Services/logging-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AuthInterceptorService } from './Services/auth-interceptor.service';
   ],
   providers: [
     //provideClientHydration(),
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]
 })
