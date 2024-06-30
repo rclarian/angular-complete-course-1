@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,6 +8,7 @@ import { NgForm } from '@angular/forms';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  authService: AuthService = inject(AuthService);
   isLoginMode: boolean = true;
 
   onSwitchMode(){
@@ -14,7 +16,20 @@ export class LoginComponent {
   }
 
   onFormSubmitted(form: NgForm){
-    console.log(form.value);
+    const email = form.value.email;
+    const password = form.value.password;
+
+    if(this.isLoginMode){
+      //Login logic
+      return;
+    }else{
+      //signup logic
+      this.authService.signup(email, password).subscribe({
+        next: (res) => { console.log(res) },
+        error: (err) => { console.log(err) }
+      });
+    }
+
     form.reset();
   }
 
