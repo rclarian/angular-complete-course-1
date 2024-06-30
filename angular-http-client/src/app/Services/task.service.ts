@@ -60,8 +60,13 @@ export class TaskService {
   }
 
   GetAllTasks(){
-    return this.http.get<{[key: string]: Task}>(`${this.dataBaseCon}/${this.collectionName}.json`)
-    .pipe(map((response) => {
+    let headers = new HttpHeaders();
+    headers = headers.set('content-type', 'application/json') //same as headers.append()
+    headers = headers.set('Access-Control-Allow-Origin', '*') //same as headers.append()
+
+    return this.http.get<{[key: string]: Task}>(`${this.dataBaseCon}/${this.collectionName}.json`,
+      {headers: headers}
+    ).pipe(map((response) => {
       
       //Transform data
       let tasks = [];
