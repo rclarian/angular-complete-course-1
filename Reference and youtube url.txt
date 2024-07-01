@@ -78,3 +78,16 @@ Rules: true or "auth != null"
 firebase: AIzaSyC5Hhe5bU3GuFnZCGmThfSofQKCQ3nThag
 Docs: https://firebase.google.com/docs/reference/rest/auth#section-create-email-password
 ---------------------------------------------------
+Need the meaning for this
+Subject =
+inject =
+Observable = 
+subscribe = 
+next = 
+pipe =
+map = 
+hasOwnProperty = 
+push =
+tap =
+
+---------------------------------------------------
