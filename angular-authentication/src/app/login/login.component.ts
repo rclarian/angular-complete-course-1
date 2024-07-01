@@ -29,17 +29,24 @@ export class LoginComponent {
       this.isLoading = true;
       this.authService.signup(email, password).subscribe({
         next: (res) => { 
-          console.log(res) 
+          //console.log(res) 
           this.isLoading = false;
         },
-        error: (err) => { 
-          console.log(err) 
+        error: (errMsg) => { 
           this.isLoading = false;
+          this.errorMessage = errMsg;
+          this.hideSnackbar();
         }
       });
     }
 
     form.reset();
+  }
+
+  hideSnackbar(){
+    setTimeout(() => {
+      this.errorMessage = null;
+    }, 3000);
   }
 
 }
