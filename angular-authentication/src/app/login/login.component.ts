@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Observable } from 'rxjs';
 import { AuthResponse } from '../model/AuthResponse';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent {
   isLoginMode: boolean = true;
   isLoading: boolean = false;
   errorMessage: string | null = null;
-  authObs: Observable<AuthResponse> = new Observable<AuthResponse>();
+  authObs: Observable<AuthResponse>;
+  router: Router = inject(Router);
 
   onSwitchMode(){
     this.isLoginMode = !this.isLoginMode;
@@ -35,6 +37,7 @@ export class LoginComponent {
     this.authObs.subscribe({
       next: (res) => { 
         this.isLoading = false;
+        this.router.navigate(['/dashboard']);
       },
       error: (errMsg) => { 
         this.isLoading = false;

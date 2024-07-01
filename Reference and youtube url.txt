@@ -83,11 +83,13 @@ Subject =
 inject =
 Observable = 
 subscribe = 
+unsubscribe = 
 next = 
 pipe =
 map = 
 hasOwnProperty = 
 push =
 tap =
-
+service = 
+Subscription = 
 ---------------------------------------------------
