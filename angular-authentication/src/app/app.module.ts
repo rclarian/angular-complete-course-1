@@ -15,6 +15,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { LoggingInterceptorService } from './services/logging-interceptor.service';
 import { LoaderComponent } from './utility/loader/loader.component';
+import { SnackbarComponent } from './utility/snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LoaderComponent } from './utility/loader/loader.component';
     LoginComponent,
     CreateTaskComponent,
     TaskDetailsComponent,
-    LoaderComponent
+    LoaderComponent,
+    SnackbarComponent
   ],
   imports: [
     BrowserModule,

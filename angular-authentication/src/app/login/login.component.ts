@@ -11,6 +11,7 @@ export class LoginComponent {
   authService: AuthService = inject(AuthService);
   isLoginMode: boolean = true;
   isLoading: boolean = false;
+  errorMessage: string | null = null;
 
   onSwitchMode(){
     this.isLoginMode = !this.isLoginMode;
