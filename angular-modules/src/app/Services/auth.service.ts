@@ -39,7 +39,7 @@ export class AuthService{
     logout(){
         this.user.next(null);
         this.router.navigate(['/login']);
-        localStorage.removeItem('user');
+        localStorage?.removeItem('user');
 
         if(this.tokenExpiretimer){
             clearTimeout(this.tokenExpiretimer);
@@ -48,7 +48,7 @@ export class AuthService{
     }
 
     autoLogin(){
-        const user = JSON.parse(localStorage.getItem('user'));
+        const user = JSON.parse(localStorage?.getItem('user'));
 
         if(!user){
             return;
@@ -74,11 +74,11 @@ export class AuthService{
         const expiresIn = new Date(expiresInTs);
         const user = new User(res.email, res.localId, res.idToken, expiresIn);
         this.user.next(user);
-        
+
         const timeExpire = +res.expiresIn * 1000;
         this.autoLogout((timeExpire));
 
-        localStorage.setItem('user', JSON.stringify(user));
+        localStorage?.setItem('user', JSON.stringify(user));
     }
     private handleError(err){
         let errorMessage = 'An unknown error has occured'
