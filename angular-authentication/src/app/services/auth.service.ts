@@ -4,6 +4,7 @@ import { AuthResponse } from '../model/AuthResponse';
 import { BehaviorSubject, Subject, catchError, throwError } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { User } from '../model/User';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class AuthService {
 
   http: HttpClient = inject(HttpClient);
   user = new BehaviorSubject<User>(null);
+  router: Router = inject(Router);
   
   signup(email: string, password: string){
     const data = {email: email, password: password, returnSecureToken: true}
@@ -29,6 +31,11 @@ export class AuthService {
     tap((res) => {
       this.handleCreateUser(res);
     }))
+  }
+
+  logout(){
+    this.user.next(null);
+    this.router.navigate(['/login']);
   }
 
   private handleCreateUser(res: AuthResponse){
