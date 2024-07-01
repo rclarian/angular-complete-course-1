@@ -63,12 +63,9 @@ export class TaskService {
   }
 
   GetAlltasks(){
-    return this.authService.user.pipe(take(1), exhaustMap(user => {
-        return this.http.get<{[key: string]: Task}>(`${this.dataBaseCon}/${this.collectionName}.json`, {params: new HttpParams().set('auth', user.token)})
-            }), map((response) => {
+    return this.http.get(`${this.dataBaseCon}/${this.collectionName}.json`).pipe(map((response) => {
                 //TRANSFORM DATA
                 let tasks = [];
-                //console.log(response);
                 for(let key in response){
                     if(response.hasOwnProperty(key)){
                     tasks.push({...response[key], id: key});
