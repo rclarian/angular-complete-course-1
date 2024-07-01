@@ -80,6 +80,7 @@ Docs: https://firebase.google.com/docs/reference/rest/auth#section-create-email-
 ---------------------------------------------------
 Need the meaning for this
 Subject =
+BehaviorSubject = can use the previous emitted data
 inject =
 Observable = 
 subscribe = 
@@ -90,6 +91,8 @@ map =
 hasOwnProperty = 
 push =
 tap =
+take = take the latest value and unsubscribe immediately
 service = 
 Subscription = 
+exhaustMap() = take the latest object
 ---------------------------------------------------

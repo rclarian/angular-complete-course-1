@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { AuthResponse } from '../model/AuthResponse';
-import { Subject, catchError, throwError } from 'rxjs';
+import { BehaviorSubject, Subject, catchError, throwError } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { User } from '../model/User';
 
@@ -11,7 +11,7 @@ import { User } from '../model/User';
 export class AuthService {
 
   http: HttpClient = inject(HttpClient);
-  userSub = new Subject<User>();
+  user = new BehaviorSubject<User>(null);
   
   signup(email: string, password: string){
     const data = {email: email, password: password, returnSecureToken: true}
@@ -35,7 +35,7 @@ export class AuthService {
     const expiresInTs = new Date().getTime() + +res.expiresIn * 1000;
       const expiresIn = new Date(expiresInTs);
       const user = new User(res.email, res.localId, res.idToken, expiresIn);
-      this.userSub.next(user);
+      this.user.next(user);
   }
 
   private handleError(err: any){
