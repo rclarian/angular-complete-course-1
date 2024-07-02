@@ -5,10 +5,16 @@ import { CreateTaskComponent } from './create-task/create-task.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { SharedModule } from '../shared.module';
 import { OverviewComponent } from './overview/overview.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { StatsComponent } from './stats/stats.component';
+import { canActivate } from '../RouteGuards/authGuard';
 
-
+const routes: Routes = [
+  { path: 'dashboard', canActivate: [canActivate], children: [
+    {path: 'overview', component: OverviewComponent},
+    {path: 'stats', component: StatsComponent}
+  ] }
+]
 
 @NgModule({
   declarations: [
@@ -27,7 +33,8 @@ import { StatsComponent } from './stats/stats.component';
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    RouterModule.forChild(routes)
   ]
 })
 export class DashboardModule { }
