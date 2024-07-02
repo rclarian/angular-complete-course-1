@@ -6,25 +6,25 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { CoreModule } from './core.module';
+import { AuthModule } from './login/auth.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    HomeComponent,
-    LoginComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     DashboardModule,
-    CoreModule
+    CoreModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
