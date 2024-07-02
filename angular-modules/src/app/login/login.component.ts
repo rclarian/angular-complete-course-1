@@ -4,6 +4,7 @@ import { AuthService } from '../Services/auth.service';
 import { Observable } from 'rxjs';
 import { AuthResponse } from "../Model/AuthResponse";
 import { Router } from '@angular/router';
+import { CounterService } from '../Services/counter.service';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,7 @@ export class LoginComponent {
   errorMessage: string | null = null;
   authObs: Observable<AuthResponse>;
   router: Router = inject(Router);
+  countService: CounterService = inject(CounterService);
 
   onSwitchMode(){
     this.isLoginMode = !this.isLoginMode;
@@ -54,5 +56,9 @@ export class LoginComponent {
     setTimeout(() => {
       this.errorMessage = null;
     }, 3000);
+  }
+
+  ngOnInit(){
+    this.countService.increment('LoginComponent');
   }
 }

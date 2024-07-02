@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core.module';
+import { CounterService } from './Services/counter.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { CoreModule } from './core.module';
     HttpClientModule,
     CoreModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [CounterService]
 })
 export class AppModule { }

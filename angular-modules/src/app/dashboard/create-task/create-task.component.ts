@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output, Input, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output, Input, ViewChild, inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Task } from '../../Model/Task';
+import { CounterService } from '../../Services/counter.service';
 
 @Component({
   selector: 'app-create-task',
@@ -20,6 +21,12 @@ export class CreateTaskComponent {
   @Output()
   EmitTaskData: EventEmitter<Task> = new EventEmitter<Task>();
 
+  countService: CounterService = inject(CounterService);
+
+  ngOnInit(){
+    this.countService.increment('CreateTaskComponent');
+  }
+
   ngAfterViewInit(){
     setTimeout(() => {
       this.taskForm.form.patchValue(this.selectedTask);
@@ -35,4 +42,5 @@ export class CreateTaskComponent {
     this.EmitTaskData.emit(form.value);
     this.CloseForm.emit(false);
   }
+
 }
