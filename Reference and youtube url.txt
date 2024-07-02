@@ -48,6 +48,12 @@ Structural Directive = ngFor, ngIf
 Office: E:\Project\Tutorial2023\Angular\angular-complete-course-1
 
 ---------------------------------------------------
+Deployment
+--Generate environment
+1. ng g evironments -- setup the db connection or firebaseAPIKEY: 'AIzaSyC5Hhe5bU3GuFnZCGmThfSofQKCQ3nThag'
+2. ng build
+
+---------------------------------------------------
 --Folders
 node_modules = Node modules allow users to reuse existing code instead of reinventing the wheel. This can save time and effort by leveraging the work of others in the NodeJS community. Modularity: Node modules promote a modular approach to software development.
 
