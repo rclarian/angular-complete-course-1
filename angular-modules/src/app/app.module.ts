@@ -7,9 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DashboardModule } from './dashboard/dashboard.module';
 import { CoreModule } from './core.module';
-import { AuthModule } from './login/auth.module';
 
 @NgModule({
   declarations: [
@@ -22,9 +20,7 @@ import { AuthModule } from './login/auth.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    DashboardModule,
     CoreModule,
-    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
