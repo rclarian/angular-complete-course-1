@@ -1,4 +1,4 @@
-import { Component, DoCheck, signal } from '@angular/core';
+import { Component, DoCheck, signal, computed, effect } from '@angular/core';
 
 @Component({
   selector: 'app-signals',
@@ -6,25 +6,29 @@ import { Component, DoCheck, signal } from '@angular/core';
   styleUrl: './signals.component.css'
 })
 export class SignalsComponent implements DoCheck{
-  counter =  signal(0);
-
-  message = signal<string[]>([]);
-
-  increment(){
-   //this.counter.set(this.counter() + 1);
-   this.counter.update((old) => old + 1);
-   //this.message.push('Current counter value is: ' + this.counter);
-   this.message.update((prevValue) => [...prevValue, 'Current value of counter is: ' + this.counter()]);
-   //this.message.mutate((prevValue) => prevValue.push('Current value of counter is: ' + this.counter()));
-   
+  constructor(){
+    effect(() => console.log('NEW COUNTER VALUE = ' + this.counter()));
   }
+   counter = signal(0);
 
-  decrement(){
+   message = signal<string[]>([]);
+
+   doubleCounter = computed(() => this.counter() * 2);
+
+   increment(){
+    //this.counter.set(this.counter() + 1);
+    this.counter.update((old) => old + 1);
+    this.message.update((prevValue) => [...prevValue, 'Current value of counter is: ' + this.counter()]);
+    //this.message.mutate((prevValue) => prevValue.push('Current value of counter is: ' + this.counter()));//mutate remove on 17
+   }
+
+   decrement(){
     this.counter.update((old) => old - 1);
-   //this.message.pop();
-  }
+    //this.message.pop();
+    //this.message.mutate((prevValue) => prevValue.pop()); //mutate remove on 17
+   }
 
-  ngDoCheck(){
-    console.log('ANGULAR CHANGE DETECTION CALLED!');
-  }
+   ngDoCheck(){
+    console.log('CHANGE DETECTION CYCLE CALLED');
+   }
 }
