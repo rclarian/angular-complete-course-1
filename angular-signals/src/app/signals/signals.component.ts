@@ -11,7 +11,8 @@ export class SignalsComponent implements DoCheck{
   message: string[] = [];
 
   increment(){
-   this.counter;
+   //this.counter.set(this.counter() + 1);
+   this.counter.update((old) => old + 1)
    this.message.push('Current counter value is: ' + this.counter);
   }
 
