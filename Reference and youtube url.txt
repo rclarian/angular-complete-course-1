@@ -21,6 +21,7 @@ local: http://localhost:4200/
 --Add folder component on the project
 ng g c header --skip-tests
 ng g c topHeader
+ng g c overview --module dashboard -------- example of added to which module
 
 --Add directive
 ng g d highlight --skip--tests

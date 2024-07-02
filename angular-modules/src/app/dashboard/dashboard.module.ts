@@ -4,6 +4,9 @@ import { DashboardComponent } from './dashboard.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { SharedModule } from '../shared.module';
+import { OverviewComponent } from './overview/overview.component';
+import { RouterModule } from '@angular/router';
+import { StatsComponent } from './stats/stats.component';
 
 
 
@@ -11,7 +14,9 @@ import { SharedModule } from '../shared.module';
   declarations: [
     DashboardComponent,
     CreateTaskComponent,
-    TaskDetailsComponent
+    TaskDetailsComponent,
+    OverviewComponent,
+    StatsComponent
   ],
   exports: [
     DashboardComponent,
@@ -21,7 +26,8 @@ import { SharedModule } from '../shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ]
 })
 export class DashboardModule { }
