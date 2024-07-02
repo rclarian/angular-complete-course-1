@@ -24,7 +24,7 @@ export class StatsComponent {
       this.open = taskList.filter(x => x.status === 'open').length;
       this.started = taskList.filter(x => x.status === 'started').length;
       this.inprogress = taskList.filter(x => x.status === 'in-progress').length;
-      this.closed = taskList.filter(x => x.status === 'closed').length;
+      this.closed = taskList.filter(x => x.status === 'complete').length;
     });
   }
 }
