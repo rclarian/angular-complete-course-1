@@ -3,10 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { LoaderComponent } from '../utility/loader/loader.component';
-import { SnackbarComponent } from '../utility/snackbar/snackbar.component';
-import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared.module';
 
 
 
@@ -14,21 +11,17 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     DashboardComponent,
     CreateTaskComponent,
-    TaskDetailsComponent,
-    LoaderComponent,
-    SnackbarComponent
+    TaskDetailsComponent
   ],
   exports: [
     DashboardComponent,
     CreateTaskComponent,
     TaskDetailsComponent,
-    LoaderComponent,
-    SnackbarComponent
+    SharedModule
   ],
   imports: [
     CommonModule,
-    FormsModule
-    
+    SharedModule
   ]
 })
 export class DashboardModule { }
